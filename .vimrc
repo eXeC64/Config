@@ -1,6 +1,6 @@
-
 set background=dark "assume dark bg
 set fileformat=unix "unix file endings
+filetype plugin indent on
 syntax enable "syntax highlighting
 
 set undolevels=1000
@@ -19,7 +19,8 @@ set copyindent "Indent to same level as previous line by default
 set shiftwidth=4 "Number of spaces to autoindent
 set shiftround "Use multiples of shiftwidth when using </> to indent
 
-au FileType Makefile set noexpandtab "makefiles are tabs, not spaces!
+autocmd FileType make setlocal noexpandtab
+autocmd Filetype go setlocal noexpandtab softtabstop=8 shiftwidth=8
 
 set backspace=indent,eol,start "Backspace can go back over anything
 
