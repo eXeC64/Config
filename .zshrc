@@ -14,6 +14,12 @@ compinit
 PROMPT="%n@%M %# "
 RPROMPT=""
 
-alias ls="ls --color=auto -lh"
+alias ls="ls -F --color=auto"
+alias ll="ls -lF --color=auto"
+alias la="ls -alF --color=auto"
+
+alias cp="cp -ri"
+alias mv="mv -i"
+alias rm="rm -i"
 
 eval $(dircolors ~/.dircolors)
