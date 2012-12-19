@@ -1,0 +1,8 @@
+[core]
+	editor = vim
+	autocrlf = input
+[user]
+	name = Harry Jeffery
+	email = harry@exec64.co.uk
+[color]
+	ui = true
