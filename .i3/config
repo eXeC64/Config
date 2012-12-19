@@ -54,6 +54,8 @@ bindsym $mod+p layout default
 
 bindsym $mod+w focus output DVI-I-2
 bindsym $mod+e focus output DVI-I-1
+bindsym $mod+Shift+W move workspace to output DVI-I-2
+bindsym $mod+Shift+E move workspace to output DVI-I-1
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -68,17 +70,16 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 # switch to workspace
-#bindsym $mod+1 workspace 1
-bindsym $mod+1 exec --no-startup-id "~/.i3/move_workspace_to_current_output.sh 1"
-bindsym $mod+2 exec --no-startup-id "~/.i3/move_workspace_to_current_output.sh 2"
-bindsym $mod+3 exec --no-startup-id "~/.i3/move_workspace_to_current_output.sh 3"
-bindsym $mod+4 exec --no-startup-id "~/.i3/move_workspace_to_current_output.sh 4"
-bindsym $mod+5 exec --no-startup-id "~/.i3/move_workspace_to_current_output.sh 5"
-bindsym $mod+6 exec --no-startup-id "~/.i3/move_workspace_to_current_output.sh 6"
-bindsym $mod+7 exec --no-startup-id "~/.i3/move_workspace_to_current_output.sh 7"
-bindsym $mod+8 exec --no-startup-id "~/.i3/move_workspace_to_current_output.sh 8"
-bindsym $mod+9 exec --no-startup-id "~/.i3/move_workspace_to_current_output.sh 9"
-bindsym $mod+0 exec --no-startup-id "~/.i3/move_workspace_to_current_output.sh 10"
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move workspace 1
@@ -97,7 +98,7 @@ bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exit
+bindsym $mod+Escape exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
