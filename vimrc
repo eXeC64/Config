@@ -1,7 +1,30 @@
 set background=dark "assume dark bg
 set fileformat=unix "unix file endings
+set encoding=utf-8
+set nocompatible
+
+"Vundle stuff
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+"Github repos
+Bundle 'vim-scripts/taglist.vim'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'vim-scripts/UltiSnips'
+Bundle 'ervandew/supertab'
+"supetab configuration
+let g:SuperTabMappingForward = "<nul>"
+let g:SuperTabMappingBackward = "<s-tab>"
+
 filetype plugin indent on
+
 syntax enable "syntax highlighting
+"Adjust highlighting to make more sense
+highlight Folded ctermfg=8 ctermbg=10
+highlight Visual ctermfg=10 ctermbg=16 
 
 set undolevels=1000
 set showmode "show current mode in status line
@@ -21,6 +44,8 @@ set shiftround "Use multiples of shiftwidth when using </> to indent
 
 autocmd FileType make setlocal noexpandtab
 autocmd Filetype go setlocal noexpandtab softtabstop=8 shiftwidth=8
+autocmd Filetype html setlocal softtabstop=2 shiftwidth=2
+au BufRead,BufNewFile *.md setlocal filetype=markdown
 
 set backspace=indent,eol,start "Backspace can go back over anything
 
@@ -28,7 +53,6 @@ set rnu "Relative line numbering
 
 set mouse=a "Enable mouse support in terminals that support it
 
-set gdefault "Search/replace is global on a line by default
 set hlsearch "search results are highlighted
 
 "ignore these extensions when expanding paths
@@ -47,11 +71,14 @@ let mapleader = "," "Set leader to ,
 cmap w!! %!sudo tee > /dev/null %
 
 "j/k go up/down rows on wrapped lines, instead of to next line
-nnoremap j gj
-nnoremap k gk
+"nnoremap j gj
+"nnoremap k gk
 
 "Remove search highlighting
 nmap <silent> <leader>/ :nohlsearch<CR>
+
+"leader t opens tags window
+nmap <silent> <leader>t :TlistToggle<CR>
 
 "shifting does not leave visual mode
 vnoremap < <gv
@@ -60,4 +87,3 @@ vnoremap > >gv
 "Speed up scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
-

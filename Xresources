@@ -1,5 +1,6 @@
-URxvt.font: xft:Monospace:size=12
+URxvt.font: xft:Monospace:size=11
 URxvt.scrollBar: false
+URxvt.urgentOnBell: true
 
 #define S_base03        #002b36
 #define S_base02        #073642

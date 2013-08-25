@@ -1,4 +1,3 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -7,12 +6,14 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/harry/.zshrc'
 
+TERMINAL=urxvt
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-PROMPT="%n@%M %# "
-RPROMPT=""
+PROMPT="%n@%M %~/ "
+RPROMPT="%? %*"
 
 alias ls="ls -F --color=auto"
 alias ll="ls -lF --color=auto"
@@ -22,4 +23,14 @@ alias cp="cp -ri"
 alias mv="mv -i"
 alias rm="rm -i"
 
+alias uu="sudo apt-get update && sudo apt-get upgrade"
+
+alias gs="git status"
+
+alias vol="alsamixer"
+
+alias dup="( urxvt & ) &>/dev/null"
+
 eval $(dircolors ~/.dircolors)
+
+export GOPATH=$HOME/Coding/golang

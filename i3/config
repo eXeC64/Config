@@ -1,4 +1,3 @@
-
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
@@ -7,26 +6,21 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
+bindsym $mod+BackSpace exec uzbl-browser
+bindsym $mod+Shift+BackSpace exec google-chrome
+bindsym $mod+s exec i3lock -c 000000
 
 # kill focused window
 bindsym $mod+Shift+Q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -i
 
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+H move left
@@ -52,11 +46,6 @@ bindsym $mod+i layout stacking
 bindsym $mod+o layout tabbed
 bindsym $mod+p layout default
 
-bindsym $mod+w focus output DVI-I-2
-bindsym $mod+e focus output DVI-I-1
-bindsym $mod+Shift+W move workspace to output DVI-I-2
-bindsym $mod+Shift+E move workspace to output DVI-I-1
-
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -70,6 +59,11 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 # switch to workspace
+
+bindsym $mod+Left workspace prev
+bindsym $mod+Right workspace next
+bindsym $mod+bracketleft workspace prev
+bindsym $mod+bracketright workspace next
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -98,7 +92,16 @@ bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Escape exit
+bindsym $mod+F1 exit
+
+
+# Function keys
+bindsym XF86KbdBrightnessDown exec sudo asus-backlight.sh down
+bindsym XF86KbdBrightnessUp exec sudo asus-backlight.sh up
+
+bindsym XF86AudioMute exec amixer -c 0 -- sset Master togglemute
+bindsym XF86AudioLowerVolume exec amixer -c 0 -- sset Master playback 5dB-
+bindsym XF86AudioRaiseVolume exec amixer -c 0 -- sset Master playback 5dB+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -143,17 +146,36 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        mode dock
+        modifier Mod4
         #Notification tray on large monitor
         tray_output primary
+
+        font pango:Monospace 11
+
+        colors {
+            background #002b36
+            statusline #93a1a1
+            separator #002b36
+
+            focused_workspace  #586e75 #586e75 #002b36
+            active_workspace   #002b36 #002b36 #93a1a1
+            inactive_workspace #002b36 #002b36 #93a1a1
+            urgent_workspace   #002b36 #002b36 #ffff00
+        }
 }
 
-#Default layout is stacked
-workspace_layout stacked
+#Set solarized as colour for bg, to fix urxvt black borders
+client.background #002b36
 
-workspace 1 output DVI-I-2
-workspace 2 output DVI-I-1
+#Default layout is default
+workspace_layout default
 
+#Window specific stuff
+for_window [class="URxvt"] border none
+for_window [class="Vlc"] border none
+for_window [class="Xchat"] border none
+for_window [class="Steam"] border none
 
 #Launch i3 session script
-exec --no-startup-id ~/Scripts/i3_start.sh
-
+exec --no-startup-id ~/.i3_start.sh
