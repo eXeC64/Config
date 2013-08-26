@@ -11,10 +11,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "Github repos
-Bundle 'vim-scripts/taglist.vim'
+Bundle 'majutsushi/tagbar'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'maxbrunsfeld/vim-yankstack'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 "supetab configuration
 let g:SuperTabMappingForward = "<nul>"
@@ -32,9 +34,9 @@ au FileType go au BufWritePre <buffer> Fmt
 
 "Auto-fold functions
 set foldmethod=syntax
-set foldnestmax=1
+set foldnestmax=10
 set foldenable
-set foldlevel=0
+set foldlevel=20
 
 set undolevels=1000
 set showmode "show current mode in status line
@@ -85,7 +87,12 @@ cmap w!! %!sudo tee > /dev/null %
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 "leader t opens tags window
-nmap <silent> <leader>t :TlistToggle<CR>
+nmap <silent> <leader>t :TagbarToggle<CR>
+
+"leader t opens NERDTree
+nmap <silent> <leader>n :NERDTreeToggle<CR>
+"If only window left open is NERDTree, close
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q 
 
 "Yankstack binds
 nmap <leader>p <Plug>yankstack_substitute_older_paste
