@@ -23,8 +23,17 @@ filetype plugin indent on
 
 syntax enable "syntax highlighting
 "Adjust highlighting to make more sense
-highlight Folded ctermfg=8 ctermbg=10
+highlight Folded ctermfg=12 ctermbg=0
 highlight Visual ctermfg=10 ctermbg=16 
+
+"Auto go fmt go source files
+au FileType go au BufWritePre <buffer> Fmt
+
+"Auto-fold functions
+set foldmethod=syntax
+set foldnestmax=1
+set foldenable
+set foldlevel=0
 
 set undolevels=1000
 set showmode "show current mode in status line
@@ -35,6 +44,7 @@ set showmatch "show matching parenthesise
 set clipboard=unnamed "yank to clipboard
 set pastetoggle=<F12> "disable silly indenting on pastes
 
+set tabstop=4 "Tabs are 4 spaces if they have to be tabs
 set expandtab "tabs are spaces
 set softtabstop=4
 set autoindent "Autoindent by default
@@ -69,10 +79,6 @@ let mapleader = "," "Set leader to ,
 
 "Save as root
 cmap w!! %!sudo tee > /dev/null %
-
-"j/k go up/down rows on wrapped lines, instead of to next line
-"nnoremap j gj
-"nnoremap k gk
 
 "Remove search highlighting
 nmap <silent> <leader>/ :nohlsearch<CR>
