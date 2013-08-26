@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'vim-scripts/UltiSnips'
+Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'ervandew/supertab'
 "supetab configuration
 let g:SuperTabMappingForward = "<nul>"
@@ -85,6 +86,10 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 
 "leader t opens tags window
 nmap <silent> <leader>t :TlistToggle<CR>
+
+"Yankstack binds
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 "shifting does not leave visual mode
 vnoremap < <gv
