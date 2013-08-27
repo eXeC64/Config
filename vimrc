@@ -29,15 +29,6 @@ syntax enable "syntax highlighting
 highlight Folded ctermfg=12 ctermbg=0
 highlight Visual ctermfg=10 ctermbg=16 
 
-"Auto go fmt go source files
-au FileType go au BufWritePre <buffer> Fmt
-
-"Auto-fold functions
-set foldmethod=syntax
-set foldnestmax=10
-set foldenable
-set foldlevel=20
-
 set undolevels=1000
 set showmode "show current mode in status line
 set ruler "show cursor position in status line
@@ -47,8 +38,8 @@ set showmatch "show matching parenthesise
 set clipboard=unnamed "yank to clipboard
 set pastetoggle=<F12> "disable silly indenting on pastes
 
-set tabstop=4 "Tabs are 4 spaces if they have to be tabs
 set expandtab "tabs are spaces
+set tabstop=4
 set softtabstop=4
 set autoindent "Autoindent by default
 set copyindent "Indent to same level as previous line by default
@@ -56,7 +47,7 @@ set shiftwidth=4 "Number of spaces to autoindent
 set shiftround "Use multiples of shiftwidth when using </> to indent
 
 autocmd FileType make setlocal noexpandtab
-autocmd Filetype go setlocal noexpandtab softtabstop=8 shiftwidth=8
+autocmd Filetype go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype html setlocal softtabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.md setlocal filetype=markdown
 
