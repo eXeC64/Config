@@ -28,6 +28,7 @@ syntax enable "syntax highlighting
 "Adjust highlighting to make more sense
 highlight Folded ctermfg=12 ctermbg=0
 highlight Visual ctermfg=10 ctermbg=16 
+highlight CursorLine cterm=NONE ctermbg=0
 
 set undolevels=1000
 set showmode "show current mode in status line
