@@ -1,4 +1,3 @@
-set background=dark "assume dark bg
 set fileformat=unix "unix file endings
 set encoding=utf-8
 set nocompatible
@@ -17,18 +16,29 @@ Bundle 'vim-scripts/UltiSnips'
 Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
+Bundle 'itchyny/lightline.vim'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 "supetab configuration
 let g:SuperTabMappingForward = "<nul>"
 let g:SuperTabMappingBackward = "<s-tab>"
 
+set t_Co=256
+set background=dark "assume dark bg
+colorscheme solarized
+
 filetype plugin indent on
 
 syntax enable "syntax highlighting
-"Adjust highlighting to make more sense
-highlight Folded ctermfg=12 ctermbg=0
-highlight Visual ctermfg=10 ctermbg=16 
-highlight CursorLine cterm=NONE ctermbg=0
+set cursorline
+
+"LightLine configuration
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
+
+set laststatus=2
+
 
 set undolevels=1000
 set showmode "show current mode in status line
