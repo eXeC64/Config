@@ -9,11 +9,12 @@ zstyle :compinstall filename '/home/harry/.zshrc'
 TERMINAL=urxvt
 
 autoload -Uz compinit
+autoload -U colors && colors
 compinit
-# End of lines added by compinstall
 
-PROMPT="%n@%M %~/ "
-RPROMPT="%? %*"
+PROMPT="%{$fg[blue]%}%n@%M %{$fg[green]%}%~/%{$reset_color%}
+» "
+RPROMPT="%{$fg[red]%}[%?] [%*]%{$reset_color%}"
 
 alias ls="ls -F --color=auto"
 alias ll="ls -lF --color=auto"
