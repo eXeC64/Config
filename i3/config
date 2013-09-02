@@ -16,6 +16,9 @@ bindsym $mod+Shift+Q kill
 
 bindsym $mod+d exec dmenu_run -i
 
+bindsym $mod+w focus output eDP1
+bindsym $mod+e focus output VGA1
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
