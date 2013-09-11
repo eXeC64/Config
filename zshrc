@@ -13,8 +13,7 @@ autoload -U colors && colors
 compinit
 
 PROMPT="%{$fg[blue]%}%n@%M %{$fg[green]%}%~/%{$reset_color%}
-» "
-RPROMPT="%{$fg[red]%}[%?] [%*]%{$reset_color%}"
+[%?] » "
 
 alias ls="ls -F --color=auto"
 alias ll="ls -lF --color=auto"
