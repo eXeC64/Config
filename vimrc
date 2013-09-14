@@ -77,7 +77,7 @@ set shiftround "Use multiples of shiftwidth when using </> to indent
 autocmd FileType make setlocal noexpandtab
 autocmd Filetype go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype html setlocal softtabstop=2 shiftwidth=2
-au BufRead,BufNewFile *.md setlocal filetype=markdown
+au BufRead,BufNewFile *.md setlocal filetype=markdown spell spelllang=en_gb
 
 set backspace=indent,eol,start "Backspace can go back over anything
 set rnu "Relative line numbering
