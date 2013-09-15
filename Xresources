@@ -1,7 +1,6 @@
 !! changing termName allows remote
 !! things like screen to work nicely
 !! without me having to upload stuff
-URxvt*termName: rxvt
 URxvt.font: xft:Monospace:size=10
 URxvt.scrollBar: false
 URxvt.urgentOnBell: true
