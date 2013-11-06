@@ -8,6 +8,7 @@ synclient HorizTwoFingerScroll=0
 
 setxkbmap -option compose:ralt
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+xmodmap -e 'clear mod4' -e 'clear control' -e 'add control = Control_L' -e 'add mod4 = Control_R'
 
 #xsetroot -solid #002b36
 
