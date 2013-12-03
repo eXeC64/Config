@@ -15,6 +15,7 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'luxflux/vim-git-inline-diff'
@@ -22,6 +23,7 @@ Bundle 'gregsexton/gitv'
 Bundle 'itchyny/lightline.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
+Bundle 'vim-scripts/fountain.vim'
 "supetab configuration
 let g:SuperTabMappingForward = "<nul>"
 let g:SuperTabMappingBackward = "<s-tab>"
@@ -78,6 +80,7 @@ autocmd FileType make setlocal noexpandtab
 autocmd Filetype go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd Filetype html setlocal softtabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.md setlocal filetype=markdown spell spelllang=en_gb
+au BufRead,BufNewFile *.fountain setlocal filetype=fountain linebreak spell spelllang=en_gb
 
 set backspace=indent,eol,start "Backspace can go back over anything
 set rnu "Relative line numbering
