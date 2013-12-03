@@ -34,3 +34,8 @@ alias dup="( urxvt & ) &>/dev/null"
 eval $(dircolors ~/.dircolors)
 
 export GOPATH=$HOME/Coding/golang
+
+export CCACHE_DIR="/home/harry/.ccache"
+export CC="ccache gcc"
+export CXX="ccache g++"
+export PATH="/usr/lib/ccache:$PATH"
