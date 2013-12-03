@@ -3,12 +3,12 @@ STOW = stow
 PACKAGES = shell vim i3 kernel
 
 install: $(PACKAGES)
-		$(STOW) -S $^
+		$(STOW) -S $^ -t $(HOME)
 
 uninstall: $(PACKAGES)
-		$(STOW) -D $^
+		$(STOW) -D $^ -t $(HOME)
 
 update: $(PACKAGES)
-		$(STOW) -R $^
+		$(STOW) -R $^ -t $(HOME)
 
 .PHONY: install uninstall update
