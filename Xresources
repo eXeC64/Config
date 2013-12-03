@@ -1,7 +1,4 @@
-!! changing termName allows remote
-!! things like screen to work nicely
-!! without me having to upload stuff
-URxvt.font: xft:Monospace:size=10
+URxvt.font: xft:Inconsolata:size=10,xft:Symbola:size=10
 URxvt.scrollBar: false
 URxvt.urgentOnBell: true
 
