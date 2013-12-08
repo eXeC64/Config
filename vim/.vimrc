@@ -24,6 +24,8 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/fountain.vim'
+Bundle 'embear/vim-localvimrc'
+
 "supetab configuration
 let g:SuperTabMappingForward = "<nul>"
 let g:SuperTabMappingBackward = "<s-tab>"
@@ -59,6 +61,8 @@ set laststatus=2
 "vim-git-inline-diff column background colour
 highlight SignColumn ctermbg=8
 
+"lvimrc should not ask first
+let g:localvimrc_ask = 0
 
 set undolevels=1000
 set showmode "show current mode in status line
