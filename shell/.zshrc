@@ -31,6 +31,8 @@ alias vol="alsamixer"
 
 alias dup="( urxvt & ) &>/dev/null"
 
+alias pacman="sudo pacman"
+
 eval $(dircolors ~/.dircolors)
 
 export GOPATH=$HOME/Coding/golang

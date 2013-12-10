@@ -7,7 +7,7 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 bindsym $mod+Return exec urxvt
-bindsym $mod+BackSpace exec google-chrome
+bindsym $mod+BackSpace exec chromium
 bindsym $mod+s exec i3lock -c 000000
 
 # kill focused window
@@ -181,7 +181,7 @@ for_window [class="URxvt"] border none
 for_window [class="Vlc"] border none
 for_window [class="Xchat"] border none
 for_window [class="Steam"] border none
-for_window [class="Google-chrome"] border none
+for_window [class="Chromium"] border none
 
 #Launch i3 session script
 exec --no-startup-id xsetroot -solid "#002b36"
