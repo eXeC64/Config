@@ -31,7 +31,7 @@ alias vol="alsamixer"
 
 alias dup="( urxvt & ) &>/dev/null"
 
-alias pacman="sudo pacman"
+alias pacman="sudo pacman --color auto"
 
 eval $(dircolors ~/.dircolors)
 
