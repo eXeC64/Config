@@ -178,7 +178,7 @@ workspace_layout default
 
 #Window specific stuff
 for_window [class="URxvt"] border none
-for_window [class="Vlc"] border none
+for_window [class="mpv"] border none
 for_window [class="Xchat"] border none
 for_window [class="Steam"] border none
 for_window [class="Chromium"] border none
