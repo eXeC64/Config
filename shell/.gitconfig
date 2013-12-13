@@ -6,3 +6,5 @@
 	email = harry@exec64.co.uk
 [color]
 	ui = true
+[push]
+	default = simple
