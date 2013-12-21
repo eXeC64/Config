@@ -23,7 +23,7 @@ alias cp="cp -ri"
 alias mv="mv -i"
 alias rm="rm -i"
 
-alias uu="sudo apt-get update && sudo apt-get upgrade"
+alias g="git"
 
 alias vol="alsamixer"
 
