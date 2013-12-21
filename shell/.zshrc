@@ -25,9 +25,6 @@ alias rm="rm -i"
 
 alias uu="sudo apt-get update && sudo apt-get upgrade"
 
-alias gs="git status"
-alias gl="git log --pretty=format:'%C(auto)%<(10) %h %<(20,trunc)%an %C(red) %ai %C(reset)%s'"
-
 alias vol="alsamixer"
 
 alias dup="( urxvt & ) &>/dev/null"
