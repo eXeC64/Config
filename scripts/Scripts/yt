@@ -1,0 +1,3 @@
+#!/bin/bash
+uri=$(xclip -o -sel pri)
+mpv --cache-default=4096 "$uri"

@@ -1,6 +1,6 @@
 STOW = stow
 
-PACKAGES = shell vim i3
+PACKAGES = shell vim i3 scripts
 
 install: $(PACKAGES)
 		$(STOW) -S $^ -t $(HOME)
