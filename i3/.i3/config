@@ -79,6 +79,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+bindsym $mod+minus scratchpad show
 
 # move focused container to workspace
 bindsym $mod+Shift+exclam move workspace 1
@@ -91,6 +92,7 @@ bindsym $mod+Shift+ampersand move workspace 7
 bindsym $mod+Shift+asterisk move workspace 8
 bindsym $mod+Shift+parenleft move workspace 9
 bindsym $mod+Shift+parenright move workspace 10
+bindsym $mod+Shift+minus move scratchpad
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
