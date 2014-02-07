@@ -8,7 +8,7 @@ floating_modifier $mod
 
 bindsym $mod+Return exec urxvt
 bindsym $mod+BackSpace exec chromium
-bindsym $mod+s exec i3lock -c 000000
+bindsym $mod+s exec slimlock
 
 # kill focused window
 bindsym $mod+Shift+Q kill
