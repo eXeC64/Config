@@ -85,6 +85,7 @@ au BufRead,BufNewFile *.md setlocal filetype=markdown spell spelllang=en_gb
 au BufRead,BufNewFile *.fountain setlocal filetype=fountain linebreak spell spelllang=en_gb
 
 set backspace=indent,eol,start "Backspace can go back over anything
+set nu "Line numbering
 set rnu "Relative line numbering
 set mouse=a "Enable mouse support in terminals that support it
 set hlsearch "search results are highlighted
