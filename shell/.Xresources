@@ -1,6 +1,19 @@
-URxvt.font: xft:Inconsolata:size=10,xft:Symbola:size=10
+URxvt.font: xft:Inconsolata:size=11,xft:Symbola:size=11
 URxvt.scrollBar: false
 URxvt.urgentOnBell: true
+URxvt.depth: 32
+
+!! Plugins
+URxvt.perl-ext-common: font-size
+
+!! Font size stepping
+URxvt.keysym.C-Up: perl:font-size:increase
+URxvt.keysym.C-Down: perl:font-size:decrease
+URxvt.keysym.C-S-Up: perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+
+URxvt.font-size.step: 2
+
 
 #define S_base03        #002b36
 #define S_base02        #073642
