@@ -18,7 +18,6 @@ Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
-Bundle 'itchyny/lightline.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/fountain.vim'
@@ -35,7 +34,6 @@ colorscheme solarized
 filetype plugin indent on
 
 syntax enable "syntax highlighting
-set cursorline
 
 "LightLine configuration
 let g:lightline = {
