@@ -8,6 +8,7 @@ floating_modifier $mod
 
 bindsym $mod+Return exec urxvt
 bindsym $mod+BackSpace exec chromium
+bindsym $mod+equal exec urxvt -e python
 bindsym $mod+s exec slimlock
 
 # kill focused window
