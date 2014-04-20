@@ -108,8 +108,8 @@ bindsym XF86KbdBrightnessDown exec asus-kbd-backlight down
 bindsym XF86KbdBrightnessUp exec asus-kbd-backlight up
 
 bindsym XF86AudioMute exec amixer -c 0 -- sset Master togglemute
-bindsym XF86AudioLowerVolume exec amixer -c 0 -- sset Master playback 5dB-
-bindsym XF86AudioRaiseVolume exec amixer -c 0 -- sset Master playback 5dB+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master playback 10%-
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master playback 10%+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
