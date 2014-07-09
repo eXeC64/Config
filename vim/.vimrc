@@ -19,6 +19,7 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/fountain.vim'
 Bundle 'embear/vim-localvimrc'
 Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/syntastic'
 
 call vundle#end()
 filetype plugin indent on
@@ -111,3 +112,8 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 "shifting does not leave visual mode
 vnoremap < <gv
 vnoremap > >gv
+
+"Syntastic options
+
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
