@@ -4,24 +4,24 @@ set nocompatible
 
 "Vundle stuff
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 "Github repos
-Bundle 'majutsushi/tagbar'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-markdown'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-fugitive'
-Bundle 'gregsexton/gitv'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/fountain.vim'
 Bundle 'embear/vim-localvimrc'
+Bundle 'kien/ctrlp.vim'
+
+call vundle#end()
+filetype plugin indent on
 
 "supetab configuration
 let g:SuperTabMappingForward = "<nul>"
@@ -31,26 +31,8 @@ set t_Co=256
 set background=dark "assume dark bg
 colorscheme solarized
 
-filetype plugin indent on
 
 syntax enable "syntax highlighting
-
-"LightLine configuration
-let g:lightline = {
-      \ 'colorscheme': 'solarized_dark',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component': {
-      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-      \ },
-      \ 'component_visible_condition': {
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-      \ }
-      \ }
 
 set laststatus=2
 
@@ -89,31 +71,39 @@ set mouse=a "Enable mouse support in terminals that support it
 set hlsearch "search results are highlighted
 
 "ignore these extensions when expanding paths
-set wildignore=*.o,*.pyc
+set wildignore=*.o,*.pyc,*.so,*.swp,*.zip
 
 let mapleader = "," "Set leader to ,
 
 "Better buffer navigation
 :set hidden
-:nmap <Tab> :bn<CR>
-:nmap <S-Tab> :bp<CR>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:30'
+
+"ctrlp between buffers
+nmap <silent> <leader>b :CtrlPBuffer<CR>
+
+"ctrlp recent files
+nmap <silent> <leader>r :CtrlPMRU<CR>
+
+"ctrlp current file's directory
+nmap <silent> <leader>f :CtrlPCurFile<CR>
+"
+"ctrlp the current working directory
+nmap <silent> <leader>d :CtrlPCurWD<CR>
+
+"Don't limit ctrlp's file access
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_depth = 40
 
 "Save as root
 cmap w!! %!sudo tee > /dev/null %
 
-"Wrap on column 80
-nmap <silent> <leader>w :setlocal textwidth=80<CR>
-
 "Remove search highlighting
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-"leader t opens tags window
-nmap <silent> <leader>t :TagbarToggle<CR>
-
-"leader t opens NERDTree
-nmap <silent> <leader>n :NERDTreeToggle<CR>
-"If only window left open is NERDTree, close
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q 
 "Yankstack binds
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
