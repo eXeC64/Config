@@ -30,6 +30,7 @@
   syntax enable                         "Syntax highlighting
   set showmatch                         "Highlight matching parenthesise
   set hlsearch                          "Highlight search results
+  set cursorline                        "Highlight the line the cursor is on
 
   "Statusbar and line numbering
   set laststatus=2                      "Statusbar should be double height
