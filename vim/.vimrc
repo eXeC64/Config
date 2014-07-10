@@ -23,8 +23,8 @@
   set background=dark
 
   "Solarized colour settings
-  "colorscheme solarized
-  "highlight SignColumn ctermbg=8
+  colorscheme solarized
+  highlight SignColumn ctermbg=8
 
   "Highlighting
   syntax enable                         "Syntax highlighting
