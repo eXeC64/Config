@@ -1,122 +1,134 @@
-set fileformat=unix "unix file endings
-set encoding=utf-8
-set nocompatible
+"Harry "eXeC64" Jeffery's vimrc.
+"Current version available in github.com/eXeC64/Config
+"Use zo/zc to open and close the folds
+" vim: fdm=indent
 
-"Vundle stuff
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"==============="
+"Native settings"
+"==============="
+  set fileformat=unix                       "Unix file endings
+  set encoding=utf-8                        "Use the blessed utf-8 encoding
+  set nocompatible                          "Don't bother with silly vi compatibility
+  set undolevels=1000                       "Undo up to 1000 times
+  set backspace=indent,eol,start            "Backspace can go back over anything
+  set clipboard=unnamed                     "Enable yank to clipboard
+  set mouse=a                               "Enable mouse support (Not that I use it much)
+  set scroll=10                             "Set C-u/c-d scroll distance
+  set wildignore=*.o,*.pyc,*.so,*.swp,*.zip "Ignore these extensions when expanding paths
+  set modeline                              "Allow files to set vim settings
+  let mapleader = ","                       "Set leader to ','
 
-Bundle 'gmarik/Vundle.vim'
+  "Set up console colours
+  set t_Co=256
+  set background=dark
 
-"Github repos
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-markdown'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/fountain.vim'
-Bundle 'embear/vim-localvimrc'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
+  "Solarized colour settings
+  "colorscheme solarized
+  "highlight SignColumn ctermbg=8
 
-call vundle#end()
-filetype plugin indent on
+  "Highlighting
+  syntax enable                         "Syntax highlighting
+  set showmatch                         "Highlight matching parenthesise
+  set hlsearch                          "Highlight search results
 
-"supetab configuration
-let g:SuperTabMappingForward = "<nul>"
-let g:SuperTabMappingBackward = "<s-tab>"
+  "Statusbar and line numbering
+  set laststatus=2                      "Statusbar should be double height
+  set showmode                          "Show current mode in status line
+  set ruler                             "Show cursor position in status line
+  set nu                                "Enable line numbering...
+  set rnu                               " ...but make it relative
 
-set t_Co=256
-set background=dark "assume dark bg
-colorscheme solarized
+  "Indentation
+  set expandtab                         "Tabs are spaces
+  set tabstop=2
+  set softtabstop=2
+  set shiftwidth=2
+  set autoindent                        "Autoindent by default
+  set copyindent                        "Indent to same level as previous line by default
+  set shiftround                        "Use multiples of shiftwidth when using </> to indent
 
+"========================="
+"Custom binds and commands
+"========================="
+  "Remove search highlighting
+  nmap <silent> <leader>/ :nohlsearch<CR>
 
-syntax enable "syntax highlighting
+  "Shifting keeps us in visual mode
+  vnoremap < <gv
+  vnoremap > >gv
 
-set laststatus=2
+  "A hack to save as root if we forgot to use vim as root
+  cmap w!! %!sudo tee > /dev/null %
 
-"vim-git-inline-diff column background colour
-highlight SignColumn ctermbg=8
+"=========================="
+"Filetype specific settings
+"=========================="
+  autocmd FileType make setlocal noexpandtab
+  autocmd Filetype go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd Filetype html setlocal softtabstop=2 shiftwidth=2
+  au BufRead,BufNewFile *.md setlocal filetype=markdown spell spelllang=en_gb
+  au BufRead,BufNewFile *.fountain setlocal filetype=fountain linebreak spell spelllang=en_gb
 
-"lvimrc should not ask first
-let g:localvimrc_ask = 0
+"==============="
+"Vundle settings"
+"==============="
+  filetype off
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+  Bundle 'gmarik/Vundle.vim'
 
-set undolevels=1000
-set showmode "show current mode in status line
-set ruler "show cursor position in status line
-set showcmd "show partial command in status line
-set showmatch "show matching parenthesise
+  Bundle  'altercation/vim-colors-solarized'
+  Bundle       'embear/vim-localvimrc'
+  Bundle     'jnwhiteh/vim-golang'
+  Bundle         'kien/ctrlp.vim'
+  Bundle     'Lokaltog/vim-easymotion'
+  Bundle 'maxbrunsfeld/vim-yankstack'
+  Bundle   'scrooloose/syntastic'
+  Bundle        'tpope/vim-markdown'
+  Bundle  'vim-scripts/fountain.vim'
+  call vundle#end()
+  filetype plugin indent on
 
-set clipboard=unnamed "yank to clipboard
+"==============="
+"Plugin settings"
+"==============="
+  "Local vimrc
+  let g:localvimrc_ask = 0              "Don't ask to use a local .vimrc, do it automatically.
 
-set expandtab "tabs are spaces
-set tabstop=4
-set softtabstop=4
-set autoindent "Autoindent by default
-set copyindent "Indent to same level as previous line by default
-set shiftwidth=4 "Number of spaces to autoindent
-set shiftround "Use multiples of shiftwidth when using </> to indent
+  "CtrlP
+  :set hidden                           "Don't stop us switching away from unsaved files
+  let g:ctrlp_map = '<c-p>'             "Bind to ctrl-p
+  let g:ctrlp_cmd = 'CtrlP'             "Default command
+  let g:ctrlp_working_path_mode = 'ra'  "Default to head of repo, or current working directory
+  let g:ctrlp_max_files = 0             "Don't limit how many files to scan
+  let g:ctrlp_max_depth = 40            "Don't go farther than 40 levels deep into a directory
+  let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:30'
 
-autocmd FileType make setlocal noexpandtab
-autocmd Filetype go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
-autocmd Filetype html setlocal softtabstop=2 shiftwidth=2
-au BufRead,BufNewFile *.md setlocal filetype=markdown spell spelllang=en_gb
-au BufRead,BufNewFile *.fountain setlocal filetype=fountain linebreak spell spelllang=en_gb
+  nmap <silent> <leader>b :CtrlPBuffer<CR>  "Search buffers
+  nmap <silent> <leader>r :CtrlPMRU<CR>     "Search recently used files
+  nmap <silent> <leader>d :CtrlPCurWD<CR>   "Search working directory
 
-set backspace=indent,eol,start "Backspace can go back over anything
-set nu "Line numbering
-set rnu "Relative line numbering
-set mouse=a "Enable mouse support in terminals that support it
-set hlsearch "search results are highlighted
+  "Yankstack binds
+  nmap <leader>p <Plug>yankstack_substitute_older_paste
+  nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
-"ignore these extensions when expanding paths
-set wildignore=*.o,*.pyc,*.so,*.swp,*.zip
+  "Syntastic options
+  let g:syntastic_error_symbol = '✗'
+  let g:syntastic_warning_symbol = '⚠'
 
-let mapleader = "," "Set leader to ,
-
-"Better buffer navigation
-:set hidden
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:30'
-
-"ctrlp between buffers
-nmap <silent> <leader>b :CtrlPBuffer<CR>
-
-"ctrlp recent files
-nmap <silent> <leader>r :CtrlPMRU<CR>
-
-"ctrlp current file's directory
-nmap <silent> <leader>f :CtrlPCurFile<CR>
-"
-"ctrlp the current working directory
-nmap <silent> <leader>d :CtrlPCurWD<CR>
-
-"Don't limit ctrlp's file access
-let g:ctrlp_max_files = 0
-let g:ctrlp_max_depth = 40
-
-"Save as root
-cmap w!! %!sudo tee > /dev/null %
-
-"Remove search highlighting
-nmap <silent> <leader>/ :nohlsearch<CR>
-
-"Yankstack binds
-nmap <leader>p <Plug>yankstack_substitute_older_paste
-nmap <leader>P <Plug>yankstack_substitute_newer_paste
-
-"shifting does not leave visual mode
-vnoremap < <gv
-vnoremap > >gv
-
-"Syntastic options
-
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-
-"Set C-u/C-d jump distance
-set scroll=10
+"====="
+"Tips & Tricks
+"====="
+  "Folds:
+  " zf to create a fold
+  " zd to remove a fold
+  " zo to open a fold
+  " zc to close a fold
+  " zO to open folds recursively
+  " zC to close folds recursively
+  " :set fdm <manual/indent/syntax>
+  "
+  "EasyMotion:
+  "<leader><leader><motion> to show prompt for quick jumping.
+  "
+  "More tricks to come.
