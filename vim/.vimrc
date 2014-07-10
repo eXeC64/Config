@@ -104,9 +104,9 @@
   let g:ctrlp_max_depth = 40            "Don't go farther than 40 levels deep into a directory
   let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:30'
 
-  nmap <silent> <leader>b :CtrlPBuffer<CR>  "Search buffers
-  nmap <silent> <leader>r :CtrlPMRU<CR>     "Search recently used files
-  nmap <silent> <leader>d :CtrlPCurWD<CR>   "Search working directory
+  nmap <silent> <leader>b :CtrlPBuffer<CR>
+  nmap <silent> <leader>r :CtrlPMRU<CR>
+  nmap <silent> <leader>d :CtrlPCurWD<CR>
 
   "Yankstack binds
   nmap <leader>p <Plug>yankstack_substitute_older_paste
