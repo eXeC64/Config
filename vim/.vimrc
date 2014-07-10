@@ -126,6 +126,10 @@
   " zc to close a fold
   " zO to open folds recursively
   " zC to close folds recursively
+  " zm to have MORE folding overall
+  " zr to have REDUCED folding overall
+  " zM to fold everything
+  " zR to unfold everything
   " :set fdm <manual/indent/syntax>
   "
   "EasyMotion:
