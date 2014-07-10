@@ -117,3 +117,6 @@ vnoremap > >gv
 
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
+
+"Set C-u/C-d jump distance
+set scroll=10
