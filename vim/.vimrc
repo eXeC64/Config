@@ -136,4 +136,8 @@
   "EasyMotion:
   "<leader><leader><motion> to show prompt for quick jumping.
   "
+  "Recent Jumps:
+  "Ctrl-o to jump OUT to where you were. Out = Back
+  "Ctrl-i to jump IN to where you were. In = Forward
+  "
   "More tricks to come.
