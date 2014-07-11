@@ -41,9 +41,9 @@
 
   "Indentation
   set expandtab                         "Tabs are spaces
-  set tabstop=2
-  set softtabstop=2
-  set shiftwidth=2
+  set tabstop=2                         "Tab size
+  set softtabstop=2                     "How much to indent by when you hit tab.
+  set shiftwidth=2                      "Shift indentation amount (>> and <<)
   set autoindent                        "Autoindent by default
   set copyindent                        "Indent to same level as previous line by default
   set shiftround                        "Use multiples of shiftwidth when using </> to indent
