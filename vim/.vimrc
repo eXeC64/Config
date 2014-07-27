@@ -6,17 +6,17 @@
 "==============="
 "Native settings"
 "==============="
-  set fileformat=unix                       "Unix file endings
-  set encoding=utf-8                        "Use the blessed utf-8 encoding
-  set nocompatible                          "Don't bother with silly vi compatibility
-  set undolevels=1000                       "Undo up to 1000 times
-  set backspace=indent,eol,start            "Backspace can go back over anything
-  set clipboard=unnamed                     "Enable yank to clipboard
-  set mouse=a                               "Enable mouse support (Not that I use it much)
-  set scroll=10                             "Set C-u/c-d scroll distance
-  set wildignore=*.o,*.pyc,*.so,*.swp,*.zip "Ignore these extensions when expanding paths
-  set modeline                              "Allow files to set vim settings
-  let mapleader = ","                       "Set leader to ','
+  set fileformat=unix                                 "Unix file endings
+  set encoding=utf-8                                  "Use the blessed utf-8 encoding
+  set nocompatible                                    "Don't bother with silly vi compatibility
+  set undolevels=1000                                 "Undo up to 1000 times
+  set backspace=indent,eol,start                      "Backspace can go back over anything
+  set clipboard=unnamed                               "Enable yank to clipboard
+  set mouse=a                                         "Enable mouse support (Not that I use it much)
+  set scroll=10                                       "Set C-u/c-d scroll distance
+  set wildignore=*.o,*.pyc,*.so,*.swp,*.zip,*Build/*  "Ignore these extensions when expanding paths
+  set modeline                                        "Allow files to set vim settings
+  let mapleader = ","                                 "Set leader to ','
 
   "Set up console colours
   set t_Co=256
@@ -147,5 +147,9 @@
   "
   "EasyMotion:
   "<leader><leader><motion> to show prompt for quick jumping.
+  "
+  "Recent Jumps:
+  "Ctrl-o to jump OUT to where you were. Out = Back
+  "Ctrl-i to jump IN to where you were. In = Forward
   "
   "More tricks to come.
