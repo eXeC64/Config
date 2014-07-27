@@ -87,6 +87,13 @@
   Bundle   'scrooloose/syntastic'
   Bundle        'tpope/vim-markdown'
   Bundle  'vim-scripts/fountain.vim'
+  Bundle        'tpope/vim-fugitive'
+  Bundle        'bling/vim-airline'
+  Bundle       'edsono/vim-matchit'
+  Bundle        'tpope/vim-commentary'
+  Bundle       'SirVer/ultisnips'
+  Bundle       'eXeC64/my-snippets'
+
   call vundle#end()
   filetype plugin indent on
 
@@ -116,6 +123,11 @@
   "Syntastic options
   let g:syntastic_error_symbol = '✗'
   let g:syntastic_warning_symbol = '⚠'
+
+  "Ultisnip options
+  let g:UltiSnipsExpandTrigger = "<tab>"
+  let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+  let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 "====="
 "Tips & Tricks
