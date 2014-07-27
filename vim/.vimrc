@@ -65,7 +65,7 @@
 "Filetype specific settings
 "=========================="
   autocmd FileType make setlocal noexpandtab
-  autocmd Filetype go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
+  autocmd Filetype go setlocal noexpandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype html setlocal softtabstop=2 shiftwidth=2
   au BufRead,BufNewFile *.md setlocal filetype=markdown spell spelllang=en_gb
   au BufRead,BufNewFile *.fountain setlocal filetype=fountain linebreak spell spelllang=en_gb
