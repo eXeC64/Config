@@ -93,6 +93,7 @@
   Bundle        'tpope/vim-commentary'
   Bundle       'SirVer/ultisnips'
   Bundle       'eXeC64/my-snippets'
+  Bundle   'majutsushi/tagbar'
 
   call vundle#end()
   filetype plugin indent on
@@ -128,6 +129,10 @@
   let g:UltiSnipsExpandTrigger = "<tab>"
   let g:UltiSnipsJumpForwardTrigger = "<c-j>"
   let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+  "Tagbar
+  nmap <silent> <leader>t :TagbarToggle<CR>
+  let g:tagbar_autoclose = 1 "Autoselect the tagbar window, and auto close on tag selection
 
 "====="
 "Tips & Tricks
