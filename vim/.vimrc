@@ -132,7 +132,8 @@
 
   "Tagbar
   nmap <silent> <leader>t :TagbarToggle<CR>
-  let g:tagbar_autoclose = 1 "Autoselect the tagbar window, and auto close on tag selection
+  let g:tagbar_autoclose = 1        "Autoselect the tagbar window, and auto close on tag selection
+  let g:tagbar_show_linenumbers = 1 "Show relative line numbers, for easy jumping
 
 "====="
 "Tips & Tricks
