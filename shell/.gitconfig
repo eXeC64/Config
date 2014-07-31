@@ -9,8 +9,12 @@
 [push]
 	default = simple
 [alias]
-    s = status
-    d = diff
-    ds = diff --staged
-    ql = log --pretty=format:'%C(auto)%<(10) %h %<(20,trunc)%an %C(red) %ai %C(reset)%s'
-    p = push -v
+  a = add
+  ai = add --interactive
+  ci = commit
+  co = checkout
+  d = diff
+  ds = diff --staged
+  l = log
+  s = status
+  sh = show
