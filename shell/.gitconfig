@@ -18,3 +18,5 @@
   l = log
   s = status
   sh = show
+  ps = push
+  pl = pull
