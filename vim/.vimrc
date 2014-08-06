@@ -140,6 +140,10 @@
   let g:tagbar_autoclose = 1        "Autoselect the tagbar window, and auto close on tag selection
   let g:tagbar_show_linenumbers = 1 "Show relative line numbers, for easy jumping
 
+  "Airline
+  let g:airline_section_warning = '' "We don't want any warnings, thanks.
+  let g:airline_powerline_fonts = 1 "Use patched fonts
+
 "====="
 "Tips & Tricks
 "====="
