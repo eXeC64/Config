@@ -53,6 +53,7 @@
   set guioptions-=T                     "Remove toolbar
   set guioptions-=r                     "Remove right hand scrollbar
   set guioptions-=L                     "Remove left hand scrollbar
+  set guifont=Monospace\ 11             "Set font in gui
 
 "========================="
 "Custom binds and commands
