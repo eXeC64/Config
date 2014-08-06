@@ -90,7 +90,6 @@
   Bundle         'kien/ctrlp.vim'
   Bundle     'Lokaltog/vim-easymotion'
   Bundle 'maxbrunsfeld/vim-yankstack'
-  Bundle   'scrooloose/syntastic'
   Bundle        'tpope/vim-markdown'
   Bundle  'vim-scripts/fountain.vim'
   Bundle        'tpope/vim-fugitive'
