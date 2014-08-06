@@ -48,6 +48,12 @@
   set copyindent                        "Indent to same level as previous line by default
   set shiftround                        "Use multiples of shiftwidth when using </> to indent
 
+  "GVim
+  set guioptions-=m                     "Remove menu bar
+  set guioptions-=T                     "Remove toolbar
+  set guioptions-=r                     "Remove right hand scrollbar
+  set guioptions-=L                     "Remove left hand scrollbar
+
 "========================="
 "Custom binds and commands
 "========================="
