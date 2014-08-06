@@ -167,4 +167,7 @@
   "Ctrl-o to jump OUT to where you were. Out = Back
   "Ctrl-i to jump IN to where you were. In = Forward
   "
+  "Marks:
+  "m<letter> to set a mark
+  "'<letter> to go to a mark
   "More tricks to come.
