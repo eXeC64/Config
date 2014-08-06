@@ -33,6 +33,7 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 alias g="git"
+alias gi="git"
 
 alias vol="alsamixer"
 
