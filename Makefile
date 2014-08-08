@@ -1,6 +1,6 @@
 STOW = stow
 
-PACKAGES = shell vim i3 scripts
+PACKAGES = shell vim i3 scripts gdb
 
 install:
 	sudo pacman -S --noconfirm stow zsh openssh xorg i3 alsa-utils pulseaudio htop chromium weechat thunderbird gvim slim rxvt-unicode wget rsync scrot unzip unrar evince ttf-dejavu ttf-freefont ttf-symbola ttf-inconsolata
