@@ -35,6 +35,7 @@
   "Statusbar and line numbering
   set laststatus=2                      "Statusbar should be double height
   set showmode                          "Show current mode in status line
+  set showcmd                           "Show partial command in status line
   set ruler                             "Show cursor position in status line
   set nu                                "Enable line numbering...
   set rnu                               " ...but make it relative
