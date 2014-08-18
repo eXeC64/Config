@@ -148,29 +148,13 @@
   let g:airline_powerline_fonts = 1 "Use patched fonts
 
 "====="
-"Tips & Tricks
+"Cheat sheet
 "====="
-  "Folds:
-  " zf to create a fold
-  " zd to remove a fold
-  " zo to open a fold
-  " zc to close a fold
-  " zO to open folds recursively
-  " zC to close folds recursively
-  " zm to have MORE folding overall
-  " zr to have REDUCED folding overall
-  " zM to fold everything
-  " zR to unfold everything
-  " :set fdm <manual/indent/syntax>
+  "This is stuff I need to get into the habbit of using.
   "
   "EasyMotion:
   "<leader><leader><motion> to show prompt for quick jumping.
   "
-  "Recent Jumps:
-  "Ctrl-o to jump OUT to where you were. Out = Back
-  "Ctrl-i to jump IN to where you were. In = Forward
-  "
   "Marks:
   "m<letter> to set a mark
   "'<letter> to go to a mark
-  "More tricks to come.
