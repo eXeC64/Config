@@ -18,3 +18,29 @@ register_qt4_printers(None)
 register_boost_printers(None)
 
 end
+
+alias -a bp = info breakpoints
+
+define sbp
+save breakpoints breakpoints.txt
+end
+
+document sbp
+Saves breakpoints to breakpoints.txt
+end
+
+define lbp
+source breakpoints.txt
+end
+
+document lbp
+Loads saved breakpoints from breakpoints.txt
+end
+
+define pidof
+shell pidof $arg0
+end
+
+document pidof
+Fetches the pid of the given process
+end
