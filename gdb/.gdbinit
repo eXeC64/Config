@@ -19,6 +19,9 @@ register_boost_printers(None)
 
 end
 
+#Make go debugging happy
+add-auto-load-safe-path /usr/lib/go/src/pkg/runtime/runtime-gdb.py
+
 alias -a bp = info breakpoints
 
 define sbp
