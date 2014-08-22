@@ -22,7 +22,7 @@
   d = diff
   ds = diff --staged
   a = add
-  pl = pull
+  pl = pull --rebase
   ps = push
   f = fetch --all -p
   rb = rebase --interactive --autosquash
