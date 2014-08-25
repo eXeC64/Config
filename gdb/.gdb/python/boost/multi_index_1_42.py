@@ -39,7 +39,7 @@ def _paren_split(s, target_paren = '<'):
     end_paren['{'] = '}'
     end_paren['<'] = '>'
     if target_paren not in open_parens:
-        print('error: _paren_split: target_paren [' + target_paren + '] must be one of [' + open_parens + ']', file=sys.stderr)
+        print('error: _paren_split: target_paren [' + target_paren + '] must be one of [' + open_parens + ']')
         return None
     paren_stack = []
     res = []
@@ -80,21 +80,21 @@ def _get_subtype(t, idx):
     basic_type = t.strip_typedefs()
     s = gdb.execute('ptype/mtr ' + str(basic_type), True, True)
     if not s.startswith('type = '):
-        print('error: _get_subtype(' + str(basic_type) + '): s = ' + s, file=sys.stderr)
+        print('error: _get_subtype(' + str(basic_type) + '): s = ' + s)
         return None
     s = s[7:]
     s = s.split('\n')[0]
     if not s[-1] == '{':
-        print('error: _get_subtype(' + str(basic_type) + '): not a class?', file=sys.stderr)
+        print('error: _get_subtype(' + str(basic_type) + '): not a class?')
         return None
     s = s[:-1]
     if len(s.split(' : ')) != 2:
-        print('error: _get_subtype(' + str(basic_type) + '): no subtypes?', file=sys.stderr)
+        print('error: _get_subtype(' + str(basic_type) + '): no subtypes?')
         return None
     s = 'void< ' + s.split(' : ')[1] + ' >'
     r = _paren_split(s)
     if len(r) == 0:
-        print('error: _get_subtype(' + str(basic_type) + '): s = ' + s + '; r = ' + str(r), file=sys.stderr)
+        print('error: _get_subtype(' + str(basic_type) + '): s = ' + s + '; r = ' + str(r))
         return None
     if type(idx) == list:
         idx_list = idx
@@ -118,12 +118,12 @@ def _boost_multi_index_get_indexes(v):
     basic_type = v.type.strip_typedefs()
     v.main_args = _paren_split(str(basic_type))
     if len(v.main_args) != 3:
-        print('error parsing: ' + str(basic_type), file=sys.stderr)
+        print('error parsing: ' + str(basic_type))
         return False
     arg2_str = str(basic_type)[v.main_args[1][0]:v.main_args[1][1]] # the 2nd template arg
     arg2_args = _paren_split(arg2_str)
     if len(arg2_args) == 0:
-        print('error parsing arg2 of: ' + str(basic_type), file=sys.stderr)
+        print('error parsing arg2 of: ' + str(basic_type))
         return False
     v.indexes = []
     for r in arg2_args:
@@ -227,7 +227,6 @@ class Boost_Multi_Index:
         self.type_name = 'boost::' + self.type_name
         # add index specifier
         self.type_name += '[idx=' + str(v.idx) + ']'
-        #print >> sys.stderr, 'type_name: ' + self.type_name
 
         # index type
         self.index_type = v.indexes[v.idx]
@@ -237,24 +236,21 @@ class Boost_Multi_Index:
 
         # first, we need the element type
         self.elem_type = v.type.template_argument(0)
-        #print >> sys.stderr, 'elem_type: ' + str(self.elem_type)
 
         # next, we compute the element size and round it up to the pointer size
         ptr_size = gdb.lookup_type('void').pointer().sizeof
         self.elem_size = ((self.elem_type.sizeof - 1) / ptr_size + 1) * ptr_size
-        #print >> sys.stderr, 'elem_size: ' + str(self.elem_size)
 
         # next, we cast the object into its 2nd subtype which should be header_holder
         # and retrieve the head node
         header_holder_subtype = _get_subtype(v.type, 1)
         if header_holder_subtype == None:
-            print('error computing 2nd subtype of ' + str(v.type.strip_typedefs()), file=sys.stderr)
+            print('error computing 2nd subtype of ' + str(v.type.strip_typedefs()))
             return None
         if not str(header_holder_subtype).strip().startswith('boost::multi_index::detail::header_holder'):
-            print('2nd subtype of multi_index_container is not header_holder', file=sys.stderr)
+            print('2nd subtype of multi_index_container is not header_holder')
             return None
         head_node = v.cast(header_holder_subtype)['member'].dereference()
-        #print >> sys.stderr, 'head_node.type.sizeof: ' + str(head_node.type.sizeof)
 
         # finally, we compute the offset from the element address
         # to the index field address, as well as the address of the parent_ptr
@@ -263,10 +259,8 @@ class Boost_Multi_Index:
         self.index_offset = head_node.type.sizeof
         for i in range(v.idx + 1):
             self.index_offset -= _boost_multi_index_index_size[v.indexes[i]] * ptr_size
-        #print >> sys.stderr, 'index_offset: ' +  str(self.index_offset)
 
         self.head_index_ptr = int(head_node.address) + self.index_offset
-        #print >> sys.stderr, 'head_index_ptr: ' + hex(self.head_index_ptr)
 
     def empty_cont(self):
         return self.node_count == 0
@@ -319,25 +313,21 @@ class Boost_Multi_Index:
             if self.crt == self.last and self.saw_last:
                 raise StopIteration
             crt = self.crt
-            #print >> sys.stderr, 'crt: ' + hex(crt)
             if self.crt == self.last:
                 self.saw_last = True
             else:
                 if self.get_right_ptr(self.crt) != 0:
                     # next is leftmost node in right subtree
-                    #print >> sys.stderr, 'next is in right subtree'
                     self.crt = self.get_right_ptr(self.crt)
                     while self.get_left_ptr(self.crt) != 0:
                         self.crt = self.get_left_ptr(self.crt)
                 else:
                     # next is first ancestor from which crt is in left subtree
-                    #print >> sys.stderr, 'next is an ancestor'
                     while True:
                         old_crt = self.crt
                         self.crt = self.get_parent_ptr(self.crt)
                         if self.get_left_ptr(self.crt) == old_crt:
                             break
-                #print >> sys.stderr, 'next: ' + hex(self.crt)
             count = self.count
             self.count = self.count + 1
             val_ptr = Boost_Multi_Index.get_val_ptr(crt, self.index_offset)

@@ -109,8 +109,7 @@ def add_value_printer(Printer):
     return Printer
 
 def _cant_add_value_printer(Printer):
-    print('Printer [%s] not supported by this gdb version' % Printer.printer_name,
-          file=sys.stderr)
+    print('Printer [%s] not supported by this gdb version' % Printer.printer_name)
     return Printer
 
 # Register value printer with the top-level printer generator.
@@ -127,8 +126,7 @@ def add_type_recognizer(Type_Recognizer):
     return Type_Recognizer
 
 def _cant_add_type_recognizer(Type_Recognizer):
-    print('Type Recognizer [%s] not supported by this gdb version' % Type_Recognizer.name,
-          file=sys.stderr)
+    print('Type Recognizer [%s] not supported by this gdb version' % Type_Recognizer.name)
     return Type_Recognizer
 
 # Register type recognizer with the top-level type printer list.

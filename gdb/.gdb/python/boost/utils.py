@@ -4,10 +4,8 @@ import gdb
 from .common import *
 
 def execute(cmd):
-    #print('execute: ' + cmd, file=sys.stderr)
     return gdb.execute(cmd)
 def parse_and_eval(cmd):
-    #print('parse_and_eval: ' + cmd, file=sys.stderr)
     return gdb.parse_and_eval(cmd)
 
 # Ref:
@@ -145,7 +143,6 @@ class del_func(gdb.Function):
         try:
             execute('call $_del_func_p->' + destructor_name + '()')
         except:
-            #print('could not run destructor of type: ' + str(t), file=sys.stderr)
             pass
         # then deallocate
         execute('call free($_del_func_p)')
@@ -213,8 +210,7 @@ def call_static_method(t, f, *args):
               '\tcall failed: ' + cmd + '\n' +
               '\tto bypass call with a python function <f>, use:\n' +
               '\t  py boost_print.static_method[("' + str(t.strip_typedefs())
-              + '", "' + f + '")] = <f>',
-              file=sys.stderr)
+              + '", "' + f + '")] = <f>')
         raise gdb.error
 
 
@@ -276,8 +272,7 @@ def get_inner_type(t, s):
               '\tfailed to find type: ' + inner_type_name + '\n' +
               '\tto bypass this failure, add the result manually with:\n' +
               '\t  py boost_print.inner_type[("' +
-              str(t.strip_typedefs()) + '", "' + s + '")] = <type>',
-              file=sys.stderr)
+              str(t.strip_typedefs()) + '", "' + s + '")] = <type>')
         raise gdb.error
 
 
@@ -328,8 +323,7 @@ def get_raw_ptr(p):
               + str(p.type.strip_typedefs()) + '\n'
               + '\tto bypass this with python function <f>, add:\n'
               + '\t  py boost_print.raw_ptr["' +
-              str(p.type.strip_typedefs()) + '"] = <f>',
-              file=sys.stderr)
+              str(p.type.strip_typedefs()) + '"] = <f>')
         raise gdb.error
 
 # Null value checker
@@ -369,8 +363,7 @@ def is_null(p):
     print('is_null:\n'
           + '\tcannot run is_null() on type: ' + str(p.type.strip_typedefs()) + '\n'
           + '\tto bypass this with python function <f>, add:\n'
-          + '\t  py boost_print.null_dict["' + str(p.type.strip_typedefs()) + '"] = <f>',
-          file=sys.stderr)
+          + '\t  py boost_print.null_dict["' + str(p.type.strip_typedefs()) + '"] = <f>')
     raise gdb.error
 
 def _add_to_dict(d, *keys):
