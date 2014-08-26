@@ -25,5 +25,6 @@
   pl = pull --rebase
   ps = push
   f = fetch --all -p
-  rb = rebase --interactive --autosquash
+  rb = rebase
+  rbi = rebase --interactive --autosquash
   fix = commit --fixup
