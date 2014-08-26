@@ -35,6 +35,8 @@ alias rm="rm -i"
 alias g="git"
 alias gi="git"
 
+alias gdb="gdb -q"
+
 alias vol="alsamixer"
 
 alias dup="( urxvt & ) &>/dev/null"
