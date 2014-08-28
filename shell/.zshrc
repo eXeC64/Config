@@ -35,7 +35,8 @@ alias rm="rm -i"
 alias g="git"
 alias gi="git"
 
-alias gdb="gdb -q"
+alias gdb="gdb --quiet"
+alias cg="cgdb -- --quiet"
 
 alias vol="alsamixer"
 
