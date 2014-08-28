@@ -22,9 +22,9 @@
   d = diff
   ds = diff --staged
   a = add
-  pl = pull --rebase
+  pl = !git fetch --all --prune && git rebase FETCH_HEAD
   ps = push
-  f = fetch --all -p
+  f = fetch --all --prune
   rb = rebase
   rbi = rebase --interactive --autosquash
   fix = commit --fixup
