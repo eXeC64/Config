@@ -24,8 +24,8 @@ compinit
 PROMPT="%{$fg[blue]%}%n@%M %{$fg[green]%}%~/%{$reset_color%}
 [%?] » "
 
-alias ls="ls -F --color=auto"
-alias ll="ls -lF --color=auto"
+alias ls="ls -lF  --color=auto"
+alias ll="ls -lhF --color=auto"
 alias la="ls -alF --color=auto"
 
 alias cp="cp -ri"
