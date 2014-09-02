@@ -36,7 +36,7 @@ alias g="git"
 alias gi="git"
 
 alias gdb="gdb --quiet"
-alias cg="cgdb -- --quiet"
+alias vg="gdb --tui --quiet"
 
 alias vol="alsamixer"
 
