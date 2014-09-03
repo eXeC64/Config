@@ -14,7 +14,9 @@
   s = status -s -b
   st = status
   sh = show
+  sa = stash
   b = branch
+  bb = branch --verbose --verbose
   l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate -n 15
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
@@ -27,4 +29,5 @@
   f = fetch --all --prune
   rb = rebase
   rbi = rebase --interactive --autosquash
+  rbh = rebase --interactive --autosquash HEAD~10
   fix = commit --fixup
