@@ -26,6 +26,7 @@ alias -a bp = info breakpoints
 
 define sbp
 save breakpoints breakpoints.txt
+echo Breakpoints Saved\n
 end
 
 document sbp
@@ -34,6 +35,7 @@ end
 
 define lbp
 source breakpoints.txt
+echo Breakpoints Loaded\n
 end
 
 document lbp
