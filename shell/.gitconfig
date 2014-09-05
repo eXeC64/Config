@@ -20,10 +20,9 @@
   b = branch
   bb = branch --verbose --verbose
   bu = !git fetch --all --prune && git branch --verbose --verbose
-  l = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate -n 15
-  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-  lg = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --graph
+  ll  = log --pretty=format:"%C(yellow)%h\\ %C(red)%t\\ %Creset%s%Cblue\\ [%cn]%C(green)%d" --decorate
+  l   = !git ll -n 15
+  lg  = !git ll --graph
   d = diff
   ds = diff --staged
   a = add
