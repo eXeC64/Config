@@ -21,7 +21,7 @@
   b   = branch
   bb  = branch --verbose --verbose
   bu  = !git fetch --all --prune && git branch --verbose --verbose
-  ll  = log --pretty=format:"%C(yellow)%h\\ %C(red)%t\\ %Creset%s%Cblue\\ [%cn]%C(green)%d" --decorate
+  ll  = log --pretty=format:"%C(yellow)%h\\ %C(red)%t\\ %C(blue)[%cn]\\ %Creset%s\\ %C(green)%d" --decorate
   l   = !git ll -n 15
   lg  = !git ll --graph
   d   = diff
