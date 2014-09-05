@@ -11,25 +11,26 @@
 [rerere]
   enabled = true
 [alias]
-  co = checkout
-  ci = commit
-  s = status -s -b
-  st = status
-  sh = show
-  sa = stash
-  b = branch
-  bb = branch --verbose --verbose
-  bu = !git fetch --all --prune && git branch --verbose --verbose
+  co  = checkout
+  ci  = commit
+  s   = status -s -b
+  st  = status
+  sh  = show
+  ss  = stash
+  sp  = stash pop
+  b   = branch
+  bb  = branch --verbose --verbose
+  bu  = !git fetch --all --prune && git branch --verbose --verbose
   ll  = log --pretty=format:"%C(yellow)%h\\ %C(red)%t\\ %Creset%s%Cblue\\ [%cn]%C(green)%d" --decorate
   l   = !git ll -n 15
   lg  = !git ll --graph
-  d = diff
-  ds = diff --staged
-  a = add
-  pl = !git fetch --all --prune && git rebase FETCH_HEAD
-  ps = push
-  f = fetch --all --prune
-  rb = rebase
+  d   = diff
+  ds  = diff --staged
+  a   = add
+  pl  = !git fetch --all --prune && git rebase FETCH_HEAD
+  ps  = push
+  f   = fetch --all --prune
+  rb  = rebase
   rbi = rebase --interactive --autosquash
   rbh = rebase --interactive --autosquash HEAD~10
   fix = commit --fixup
