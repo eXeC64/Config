@@ -8,6 +8,8 @@
 	ui = true
 [push]
 	default = simple
+[rerere]
+  enabled = true
 [alias]
   co = checkout
   ci = commit
