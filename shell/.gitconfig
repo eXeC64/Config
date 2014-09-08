@@ -27,7 +27,7 @@
   d   = diff
   ds  = diff --staged
   a   = add
-  pl  = !git fetch --all --prune && git rebase FETCH_HEAD
+  pl  = pull --rebase
   ps  = push
   f   = fetch --all --prune
   rb  = rebase
