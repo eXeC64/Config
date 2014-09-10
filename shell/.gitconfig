@@ -12,6 +12,8 @@
   autosquash = true
 [rerere]
   enabled = true
+[advice]
+  detachedHead = false
 [alias]
   co  = checkout
   ci  = commit
