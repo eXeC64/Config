@@ -20,8 +20,9 @@
   s   = status -s -b
   st  = status
   sh  = show
-  ss  = stash
+  ss  = stash save
   sp  = stash pop
+  sl  = stash list
   b   = branch
   bb  = branch --verbose --verbose
   bu  = !git fetch --all --prune && git branch --verbose --verbose
