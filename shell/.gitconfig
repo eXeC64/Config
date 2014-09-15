@@ -30,6 +30,7 @@
   l   = !git ll -n 15
   lg  = !git ll --graph
   rl  = log --walk-reflogs --date=relative --pretty=format:"%C(yellow)%h\\ %C(red)%t\\ %Creset%ad\\ %C(blue)%cn\\ %Creset%gs" --decorate
+  g   = grep -E -n
   d   = diff
   ds  = diff --staged
   a   = add
