@@ -14,6 +14,9 @@
   enabled = true
 [advice]
   detachedHead = false
+[grep]
+  lineNumber = true
+  patternType = extended
 [pretty]
   concise = "%C(yellow)%h %C(red)%t %Creset%ad %C(blue)%cn %Creset%s%C(green)%d"
 [log]
@@ -35,7 +38,7 @@
   l   = log --pretty=concise -n 15
   lg  = log --pretty=concise --graph
   rl  = log --pretty=concise --walk-reflogs
-  g   = grep -E -n
+  g   = grep
   d   = diff
   ds  = diff --staged
   a   = add
