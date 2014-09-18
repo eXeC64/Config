@@ -33,7 +33,6 @@
   sl  = stash list
   b   = branch
   bb  = branch --verbose --verbose
-  bu  = !git fetch --all --prune && git branch --verbose --verbose
   ll  = log --pretty=concise
   l   = log --pretty=concise -n 15
   lg  = log --pretty=concise --graph
