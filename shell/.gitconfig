@@ -47,6 +47,5 @@
   f   = fetch --all --prune
   ff  = "!f() { git update-ref -m \"git ff $1\" refs/heads/$1 origin/$1; }; f"
   rb  = rebase
-  rbi = rebase --interactive --autosquash
-  rbh = rebase --interactive --autosquash HEAD~10
+  rbi = rebase --interactive
   fix = commit --fixup
