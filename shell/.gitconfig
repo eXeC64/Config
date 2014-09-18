@@ -1,13 +1,13 @@
 [user]
-	name = Harry Jeffery
-	email = harry@exec64.co.uk
+  name = Harry Jeffery
+  email = harry@exec64.co.uk
 [core]
-	editor = vim
-	autocrlf = input
+  editor = vim
+  autocrlf = input
 [color]
-	ui = true
+  ui = true
 [push]
-	default = simple
+  default = simple
 [rebase]
   autosquash = true
 [rerere]
