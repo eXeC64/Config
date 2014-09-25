@@ -26,7 +26,8 @@
   signoff = true
   coverLetter = auto
 [pretty]
-  concise = "%C(yellow)%h %C(red)%t %Creset%ad %C(blue)%cn %Creset%s%C(green)%d"
+  concise = "%C(yellow)%h %C(red)%t %C(reset)%ad %C(blue)%cn %C(reset)%s%C(green)%d"
+  cleangraph = "%C(yellow)%h %C(reset)%ad %C(reset)%s%C(green)%d"
 [log]
   decorate = short
   date = relative
@@ -44,6 +45,7 @@
   ll  = log --pretty=concise
   l   = log --pretty=concise -n 15
   lg  = log --pretty=concise --graph
+  lb  = log --pretty=cleangraph --graph --branches --simplify-by-decoration
   rl  = log --pretty=concise --walk-reflogs
   g   = grep
   d   = diff
