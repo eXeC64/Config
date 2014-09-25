@@ -55,4 +55,6 @@
   ff  = "!f() { git update-ref -m \"git ff $1\" refs/heads/$1 origin/$1; }; f"
   rb  = rebase
   rbi = rebase --interactive
+  rbc = rebase --continue
+  rba = rebase --abort
   fix = commit --fixup
