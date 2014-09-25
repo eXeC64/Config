@@ -17,6 +17,7 @@
   autocrlf = input
   editor = vim
 [diff]
+  algorithm = patience
   context = 7
 [format]
   coverLetter = auto
