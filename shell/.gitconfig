@@ -16,6 +16,8 @@
 [core]
   autocrlf = input
   editor = vim
+[diff]
+  context = 7
 [format]
   coverLetter = auto
   signoff = true
