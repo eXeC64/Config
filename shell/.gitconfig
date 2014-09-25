@@ -1,3 +1,4 @@
+;User settings
 [user]
   name = Harry Jeffery
   email = harry@exec64.co.uk
@@ -6,31 +7,35 @@
   smtpserver = smtp.gmail.com
   smtpuser = harry@exec64.co.uk
   smtpserverport = 587
-[core]
-  editor = vim
-  autocrlf = input
+
+;General settings
+[advice]
+  detachedHead = false
 [color]
   ui = true
+[core]
+  autocrlf = input
+  editor = vim
+[format]
+  coverLetter = auto
+  signoff = true
+[grep]
+  lineNumber = true
+  patternType = extended
+[log]
+  date = relative
+  decorate = short
 [push]
   default = simple
 [rebase]
   autosquash = true
 [rerere]
   enabled = true
-[advice]
-  detachedHead = false
-[grep]
-  lineNumber = true
-  patternType = extended
-[format]
-  signoff = true
-  coverLetter = auto
+
+;Aliases
 [pretty]
   concise = "%C(yellow)%h %C(red)%t %C(reset)%ad %C(blue)%cn %C(reset)%s%C(green)%d"
   cleangraph = "%C(yellow)%h %C(reset)%ad %C(reset)%s%C(green)%d"
-[log]
-  decorate = short
-  date = relative
 [alias]
   co  = checkout
   ci  = commit
