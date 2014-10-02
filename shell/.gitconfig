@@ -39,6 +39,7 @@
 [pretty]
   concise = "%C(yellow)%h %C(red)%t %C(reset)%ad %C(blue)%cn %C(reset)%s%C(green)%d"
   cleangraph = "%C(yellow)%h %C(reset)%ad %C(reset)%s%C(green)%d"
+  reflog = "%C(yellow)%h %C(red)%t %C(reset)%ad %C(blue)%cn %C(reset)%gs%C(green)%d"
 [alias]
   co  = checkout
   ci  = commit
@@ -54,7 +55,7 @@
   l   = log --pretty=concise -n 15
   lg  = log --pretty=concise --graph
   lb  = log --pretty=cleangraph --graph --branches --simplify-by-decoration
-  rl  = log --pretty=concise --walk-reflogs
+  rl  = log --pretty=reflog --walk-reflogs
   g   = grep
   d   = diff
   ds  = diff --staged
