@@ -21,8 +21,8 @@ autoload -Uz compinit
 autoload -U colors && colors
 compinit
 
-PROMPT="%{$fg[blue]%}%n@%M %{$fg[green]%}%~/%{$reset_color%}
-[%?] » "
+PROMPT="╭─%{$fg[blue]%}%n@%M %{$fg[green]%}%~/%{$reset_color%}
+╰─[%?]» "
 
 alias ls="ls -hF  --color=auto"
 alias ll="ls -lhF --color=auto"
