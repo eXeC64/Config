@@ -47,6 +47,8 @@ alias vol="alsamixer"
 
 alias dup="( urxvt & ) &>/dev/null"
 
+alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip'
+
 alias pacman="sudo pacman --color auto"
 
 eval $(dircolors ~/.dircolors)
