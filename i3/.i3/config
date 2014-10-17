@@ -157,7 +157,6 @@ bar {
         mode dock
         modifier Mod4
         #Notification tray on large monitor
-        tray_output primary
 
         font pango:Monospace 11
 
