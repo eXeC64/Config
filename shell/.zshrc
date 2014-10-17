@@ -11,6 +11,7 @@ setopt HIST_NO_STORE
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
+setopt PROMPT_SUBST
 
 bindkey -e
 zstyle :compinstall filename '/home/harry/.zshrc'
@@ -21,8 +22,13 @@ autoload -Uz compinit
 autoload -U colors && colors
 compinit
 
-PROMPT="╭─%{$fg[blue]%}%n@%M %{$fg[green]%}%~/%{$reset_color%}
-╰─[%?]» "
+function git_prompt()
+{
+  git branch 2>/dev/null | grep '*' | sed 's/^* //'
+}
+
+PROMPT='╭─%{$fg[blue]%}%n@%M %{$fg[green]%}%~/ $fg[red]$(git_prompt) %{$reset_color%}
+╰─[%?]»'
 
 alias ls="ls -hF  --color=auto"
 alias ll="ls -lhF --color=auto"
