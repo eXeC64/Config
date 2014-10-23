@@ -45,7 +45,7 @@
 [alias]
   co  = checkout
   ci  = commit
-  s   = status -s -b
+  s   = status -s
   st  = status
   sh  = show
   ss  = stash save
