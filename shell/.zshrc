@@ -22,12 +22,23 @@ autoload -Uz compinit
 autoload -U colors && colors
 compinit
 
+autoload -Uz add-zsh-hook
+
+function print_timestamp()
+{
+  echo -n "$fg[blue]"
+  date +"[%T]"
+  echo -n "$reset_color"
+}
+
+add-zsh-hook preexec print_timestamp
+
 function git_prompt()
 {
   git branch 2>/dev/null | grep '*' | sed 's/^* //'
 }
 
-PROMPT='╭─%{$fg[blue]%}%n@%M %{$fg[green]%}%~/ $fg[red]$(git_prompt) %{$reset_color%}
+PROMPT='╭─%{$fg[blue]%}%n@%M %{$fg[green]%}%~/ $fg[red]$(git_prompt) %{$fg[blue]%}$(date +"[%T]") %{$reset_color%}
 ╰─[%?]»'
 
 alias ls="ls -hF  --color=auto"
