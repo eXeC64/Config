@@ -11,6 +11,7 @@ setopt HIST_NO_STORE
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 setopt PROMPT_SUBST
 
 bindkey -e
