@@ -147,6 +147,10 @@
   let g:airline_section_warning = '' "We don't want any warnings, thanks.
   let g:airline_powerline_fonts = 1 "Use patched fonts
 
+  "Commenting
+  map <C-C> gcc
+  vmap <C-C> gc
+
 "====="
 "Cheat sheet
 "====="
