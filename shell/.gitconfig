@@ -27,7 +27,7 @@
   patternType = extended
 [log]
   date = relative
-  decorate = short
+  decorate = full
 [merge]
   conflictstyle = diff3
 [push]
