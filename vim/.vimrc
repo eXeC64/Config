@@ -18,6 +18,10 @@
   set modeline                                        "Allow files to set vim settings
   let mapleader = ","                                 "Set leader to ','
 
+  "No pesky .swp files
+  set nobackup
+  set noswapfile
+
   "Set up console colours
   set t_Co=256
   set background=dark
