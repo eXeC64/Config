@@ -70,6 +70,12 @@
   vnoremap < <gv
   vnoremap > >gv
 
+  "Navigate windows more easily
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
+
   "A hack to save as root if we forgot to use vim as root
   cmap w!! %!sudo tee > /dev/null %
 
