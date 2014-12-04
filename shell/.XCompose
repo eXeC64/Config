@@ -1,6 +1,9 @@
 # for Emacs: -*- coding: utf-8 -*-
 include "%L"
 
+#Not working? Make sure GTK_IM_MODULE=xim and QT_IM_MODULE=xim
+#You can set them in /etc/environment
+
 # def emit(keys, codepoint, word):
 #     print ('<Multi_key> %s <period>\t: "%s"\tU%04X\t\t# CIRCLED DIGIT %s' % 
 #            (keys, unichr(codepoint), codepoint, word)).encode('utf8')
