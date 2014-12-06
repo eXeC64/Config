@@ -27,7 +27,7 @@
   set background=dark
 
   "Solarized colour settings
-  colorscheme solarized
+  colorscheme desert
   highlight SignColumn ctermbg=8
 
   "Highlighting
@@ -96,7 +96,7 @@
   call vundle#begin()
   Bundle 'gmarik/Vundle.vim'
 
-  Bundle  'altercation/vim-colors-solarized'
+  Bundle        'flazz/vim-colorschemes'
   Bundle       'embear/vim-localvimrc'
   Bundle     'jnwhiteh/vim-golang'
   Bundle         'kien/ctrlp.vim'
