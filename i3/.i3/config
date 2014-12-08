@@ -158,28 +158,33 @@ bar {
         modifier Mod4
         #Notification tray on large monitor
 
-        font pango:Inconsolata 14
+        font pango:Monospace 11
 
         colors {
-            background #000000
+            background #002b36
             statusline #93a1a1
-            separator #000000
+            separator #002b36
 
-            focused_workspace  #586e75 #586e75 #000000
-            active_workspace   #000000 #000000 #93a1a1
-            inactive_workspace #000000 #000000 #93a1a1
-            urgent_workspace   #000000 #000000 #ffff00
+            focused_workspace  #586e75 #586e75 #002b36
+            active_workspace   #002b36 #002b36 #93a1a1
+            inactive_workspace #002b36 #002b36 #93a1a1
+            urgent_workspace   #002b36 #002b36 #ffff00
         }
 }
+
+#Set solarized as colour for bg, to fix urxvt black borders
+client.background #002b36
 
 #Default layout is default
 workspace_layout default
 
 #Window specific stuff
-for_window [class="URxvt"] border pixel 3
-for_window [class="mpv"] border pixel 3
-for_window [class="Xchat"] border pixel 3
-for_window [class="Steam"] border pixel 3
-for_window [class="Chromium"] border pixel 3
+for_window [class="URxvt"] border none
+for_window [class="mpv"] border none
+for_window [class="Xchat"] border none
+for_window [class="Steam"] border none
+for_window [class="Chromium"] border none
 
+exec --no-startup-id exec compton --backend glx --vsync opengl-oml --paint-on-overlay
+exec --no-startup-id xsetroot -solid "#002b36"
 exec --no-startup-id ~/.i3_start.sh
