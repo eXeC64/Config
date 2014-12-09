@@ -1,5 +1,0 @@
-#!/bin/sh
-
-xcompmgr -c &
-nm-applet &
-feh --bg-scale ~/.wallpaper.jpg
