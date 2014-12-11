@@ -1,4 +1,9 @@
 :set prompt "λ: "
 
+--Load useful stuff
 import Control.Monad
 import Control.Applicative
+
+--Get some documentation in here
+:def hoogle \x -> return $ ":!~/.cabal/bin/hoogle --count=20 \"" ++ x ++ "\""
+:def doc \x -> return $ ":!~/.cabal/bin/hoogle --info \"" ++ x ++ "\""
