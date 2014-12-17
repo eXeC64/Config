@@ -5,6 +5,9 @@ import Control.Applicative
 import Control.Concurrent
 import Control.Monad
 
+--Some constants
+let e = 2.71828182845904523536
+
 --Get some documentation in here
 :def hoogle \x -> return $ ":!~/.cabal/bin/hoogle --count=20 \"" ++ x ++ "\""
 :def doc \x -> return $ ":!~/.cabal/bin/hoogle --info \"" ++ x ++ "\""
