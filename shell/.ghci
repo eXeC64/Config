@@ -1,8 +1,9 @@
 :set prompt "λ: "
 
 --Load useful stuff
-import Control.Monad
 import Control.Applicative
+import Control.Concurrent
+import Control.Monad
 
 --Get some documentation in here
 :def hoogle \x -> return $ ":!~/.cabal/bin/hoogle --count=20 \"" ++ x ++ "\""
