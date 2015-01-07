@@ -35,6 +35,8 @@
   set showmatch                         "Highlight matching parenthesise
   set hlsearch                          "Highlight search results
   set cursorline                        "Highlight the line the cursor is on
+  set list                              "Show whitespace
+  set listchars=tab:\ →                 "Show tabs as arrows, don't show eol
 
   "Statusbar and line numbering
   set laststatus=2                      "Statusbar should be double height
