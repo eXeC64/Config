@@ -45,6 +45,7 @@
 [alias]
   co  = checkout
   ci  = commit
+  ca  = commit --amend
   s   = status -s
   st  = status
   sh  = show
