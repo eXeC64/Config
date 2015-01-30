@@ -114,6 +114,7 @@
   Bundle       'SirVer/ultisnips'
   Bundle       'eXeC64/my-snippets'
   Bundle   'majutsushi/tagbar'
+  Bundle        'rhysd/vim-clang-format'
 
   call vundle#end()
   filetype plugin indent on
@@ -158,6 +159,9 @@
   "Airline
   let g:airline_section_warning = '' "We don't want any warnings, thanks.
   let g:airline_powerline_fonts = 1 "Use patched fonts
+
+  "Clang-format
+  let g:clang_format#command = "clang-format-3.4"
 
   "Commenting
   map <C-C> gcc
