@@ -72,4 +72,5 @@
   rbc = rebase --continue
   rba = rebase --abort
   fix = commit --fixup
+  m   = merge
   mb  = merge-base
