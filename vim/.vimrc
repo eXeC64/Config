@@ -16,6 +16,7 @@
   set scroll=10                                       "Set C-u/c-d scroll distance
   set wildignore=*.o,*.pyc,*.so,*.swp,*.zip,*Build/*  "Ignore these extensions when expanding paths
   set modeline                                        "Allow files to set vim settings
+  set nowrap                                          "Don't wrap lines
   let mapleader = ","                                 "Set leader to ','
 
   "No pesky .swp files
