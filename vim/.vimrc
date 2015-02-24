@@ -38,6 +38,7 @@
   set cursorline                        "Highlight the line the cursor is on
   set list                              "Show whitespace
   set listchars=tab:\ →                 "Show tabs as arrows, don't show eol
+  set colorcolumn=80                    "Highlight the 80th column
 
   "Statusbar and line numbering
   set laststatus=2                      "Statusbar should be double height
