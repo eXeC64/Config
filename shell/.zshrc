@@ -50,6 +50,13 @@ alias cp="cp -ri"
 alias mv="mv -i"
 alias rm="rm -i"
 
+function myfg() { fg %$1 }
+function mybg() { bg %$1 }
+
+alias j="jobs"
+alias fg=myfg
+alias bg=mybg
+
 alias g="git"
 alias gi="git"
 
