@@ -1,3 +1,4 @@
+TERMINAL=urxvt
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
@@ -13,64 +14,42 @@ setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt PROMPT_SUBST
-
 bindkey -e
-zstyle :compinstall filename '/home/harry/.zshrc'
-
-TERMINAL=urxvt
-
-autoload -Uz compinit
-autoload -U colors && colors
-compinit
+zstyle :compinstall filename $HOME/.zshrc
 
 autoload -Uz add-zsh-hook
+autoload -Uz compinit && compinit
+autoload -Uz colors && colors
+eval $(dircolors ~/.dircolors)
 
-function print_timestamp()
-{
-  echo -n "$fg[blue]"
-  date +"[%T]"
-  echo -n "$reset_color"
-}
+#Exported variables
+export GOPATH=$HOME/Coding/golang
+export EDITOR=vim
 
+#Prompt configuration
+print_timestamp() { date +"[%T]" | sed "s/\(.*\)/$fg[blue]\1$reset_color/" }
 add-zsh-hook preexec print_timestamp
-
-function git_prompt()
-{
-  git branch 2>/dev/null | grep '*' | sed 's/^* //'
-}
-
-PROMPT='╭─%{$fg[blue]%}%n@%M %{$fg[green]%}%~/ $fg[red]$(git_prompt) %{$fg[blue]%}$(date +"[%T]") %{$reset_color%}
+git_prompt() { git branch 2>/dev/null | grep '*' | sed 's/^* //' }
+PROMPT='\
+╭─%{$fg[blue]%}%n@%M %{$fg[green]%}%~/ $fg[red]$(git_prompt) %{$fg[blue]%}$(date +"[%T]") %{$reset_color%}
 ╰─[%?]»'
 
+#Aliases
+alias ag='ag --pager "less -FRS"'
+alias apt-get="sudo apt-get"
+alias cp="cp -ri"
+alias dup="( $TERMINAL & ) &>/dev/null"
+alias g=git
+alias gi=git
+alias gdb="gdb --quiet"
+alias j=jobs
 alias ls="ls -hF  --color=auto"
 alias ll="ls -lhF --color=auto"
 alias la="ls -alhF --color=auto"
-
-alias cp="cp -ri"
 alias mv="mv -i"
-alias rm="rm -i"
-
-function myfg() { fg %$1 }
-function mybg() { bg %$1 }
-
-alias j="jobs"
-alias fg=myfg
-alias bg=mybg
-
-alias g="git"
-alias gi="git"
-
-alias gdb="gdb --quiet"
-
-alias vol="alsamixer"
-
-alias dup="( urxvt & ) &>/dev/null"
-
-alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip'
-
 alias pacman="sudo pacman --color auto"
+alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip'
+alias vol=alsamixer
 
-eval $(dircolors ~/.dircolors)
-
-export GOPATH=$HOME/Coding/golang
-export EDITOR=vim
+fg() { builtin fg %$1 }
+bg() { builtin bg %$1 }
