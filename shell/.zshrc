@@ -27,9 +27,9 @@ export GOPATH=$HOME/Coding/golang
 export EDITOR=vim
 
 #Prompt configuration
-print_timestamp() { date +"[%T]" | sed "s/\(.*\)/$fg[blue]\1$reset_color/" }
+print_timestamp() { date +"$fg[blue][%T]$reset_color" }
 add-zsh-hook preexec print_timestamp
-git_prompt() { git branch 2>/dev/null | grep '*' | sed 's/^* //' }
+git_prompt() { git branch 2>/dev/null | sed -e '/^* /!d' -e 's/^* //' }
 PROMPT='\
 ╭─%{$fg[blue]%}%n@%M %{$fg[green]%}%~/ $fg[red]$(git_prompt) %{$fg[blue]%}$(date +"[%T]") %{$reset_color%}
 ╰─[%?]»'
