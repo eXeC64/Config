@@ -49,6 +49,8 @@ alias la="ls -alhF --color=auto"
 alias mv="mv -i"
 alias pacman="sudo pacman --color auto"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip'
+alias toclip="xclip -i -sel clipboard"
+alias topri="xclip -i -sel primary"
 alias vol=alsamixer
 
 fg() { builtin fg %$1 }
