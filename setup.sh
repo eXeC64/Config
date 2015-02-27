@@ -36,7 +36,6 @@ check_sudo() {
 }
 
 common_packages=(
-  clang
   evince
   git
   htop
@@ -59,6 +58,7 @@ common_packages=(
 arch_packages=(
   ${common_packages[@]}
   base-devel
+  clang
   gvim
   inxi
   openssh
@@ -72,6 +72,8 @@ arch_packages=(
 ubuntu_packages=(
   ${common_packages[@]}
   build-essential
+  clang-3.5
+  clang-format-3.5
   openssh-client
   openssh-server
   silversearcher-ag

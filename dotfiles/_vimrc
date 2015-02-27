@@ -160,7 +160,7 @@
   let g:airline_powerline_fonts = 1 "Use patched fonts
 
   "Clang-format
-  let g:clang_format#command = "clang-format-3.4"
+  let g:clang_format#command = "clang-format-3.5"
 
   "Commenting
   map <C-C> gcc
