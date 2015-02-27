@@ -36,6 +36,7 @@ require_sudo() {
 }
 
 common_packages=(
+  cppcheck
   evince
   git
   htop
