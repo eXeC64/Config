@@ -59,6 +59,7 @@ arch_packages=(
   ${common_packages[@]}
   base-devel
   clang
+  ctags
   gvim
   inxi
   openssh
@@ -74,6 +75,7 @@ ubuntu_packages=(
   build-essential
   clang-3.5
   clang-format-3.5
+  exuberant-ctags
   openssh-client
   openssh-server
   silversearcher-ag
