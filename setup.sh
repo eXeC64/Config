@@ -49,7 +49,6 @@ common_packages=(
   thunderbird
   ttf-dejavu
   ttf-freefont
-  ttf-inconsolata
   unrar
   unzip
   weechat
@@ -65,6 +64,7 @@ arch_packages=(
   openssh
   slim
   the_silver_searcher
+  ttf-inconsolata
   ttf-symbola
   xorg
 )
