@@ -355,3 +355,7 @@ include "%L"
 <Multi_key> <numbersign> <o> <slash>	: "♪" U266a	# EIGHTH NOTE
 <Multi_key> <numbersign> <o> <o>	: "♫" U266b	# BEAMED EIGHTH NOTES
 <Multi_key> <numbersign> <percent>	: "♫" U266b	# BEAMED EIGHTH NOTES
+
+# Unsorted additions
+
+<Multi_key> <A> <o>	: "Å" U00C5	# Angstrom symbol
