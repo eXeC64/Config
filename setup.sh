@@ -35,53 +35,72 @@ require_sudo() {
   fi
 }
 
-common_packages=(
-  cppcheck
-  evince
-  git
-  htop
-  i3
-  python
-  rsync
-  rxvt-unicode
-  scrot
-  sudo
-  thunderbird
-  ttf-dejavu
-  ttf-freefont
-  unrar
-  unzip
-  weechat
-  wget
-  zsh
- )
+declare -A arch_packages ubuntu_packages
 
-arch_packages=(
-  ${common_packages[@]}
-  base-devel
-  clang
-  ctags
-  gvim
-  inxi
-  openssh
-  slim
-  the_silver_searcher
-  ttf-inconsolata
-  ttf-symbola
-  xorg
-)
+add_package() {
+  if [[ $# -lt 3 ]]; then
+    return -1
+  fi
+  group=$1
 
-ubuntu_packages=(
-  ${common_packages[@]}
-  build-essential
-  clang-3.5
-  clang-format-3.5
-  exuberant-ctags
-  openssh-client
-  openssh-server
-  silversearcher-ag
-  vim-gnome
-)
+  declare -i i j
+  for ((i=2; i + 1<= $#; i += 2))
+  do
+    j=i+1
+    platform=${!i}
+    package=${!j}
+
+    case $platform in
+    all)
+      arch_packages[$group]=$(echo "${arch_packages[$group]} $package" | sed 's/^\s*//')
+      ubuntu_packages[$group]=$(echo "${ubuntu_packages[$group]} $package" | sed 's/^\s*//')
+    ;;
+    arch)
+      arch_packages[$group]=$(echo "${arch_packages[$group]} $package" | sed 's/^\s*//')
+    ;;
+    ubuntu)
+      ubuntu_packages[$group]=$(echo "${ubuntu_packages[$group]} $package" | sed 's/^\s*//')
+    ;;
+    *)
+      echo "Unknown platform: $platform"
+      exit -1
+    ;;
+    esac
+
+  done
+}
+
+add_package term all zsh
+add_package term all htop
+add_package term all python
+add_package term all rsync
+add_package term arch the_silver_searcher ubuntu silversearcher-ag
+add_package term all sudo
+add_package term all unrar
+add_package term all unzip
+add_package term all weechat
+add_package term all wget
+add_package term all zsh
+add_package term arch inxi
+add_package term arch openssh ubuntu "openssh-client openssh-server"
+
+add_package desktop all evince
+add_package desktop all i3
+add_package desktop arch gvim ubuntu vim-gnome
+add_package desktop all rxvt-unicode
+add_package desktop all scrot
+add_package desktop all thunderbird
+add_package desktop all ttf-dejavu
+add_package desktop all ttf-freefont
+add_package desktop arch ttf-inconsolata
+add_package desktop arch ttf-symbola
+add_package desktop arch xorg
+
+add_package devel arch base-devel ubuntu build-essential
+add_package devel arch clang ubuntu "clang-3.5 clang-format-3.5"
+add_package devel all cppcheck
+add_package devel arch ctags ubuntu exuberant-ctags
+add_package devel all git
 
 do_install() {
   echo " * Installing system"
@@ -89,10 +108,28 @@ do_install() {
   require_sudo
   echo "   - Installing packages"
   if [[ $os == "Arch" ]]; then
-    sudo pacman -Sy --quiet --needed --noconfirm ${arch_packages[@]}
+    to_install=""
+    for group in "${!arch_packages[@]}"
+    do
+      read -p "     - Install packages in \"$group\"? [Yn]: " choice
+      if [[ $choice =~ ^y || $choice =~ ^Y || -z $choice ]]; then
+        to_install="$to_install ${arch_packages[$group]}"
+      fi
+    done
+    echo "     - Installing $to_install"
+    sudo pacman -Sy --quiet --needed --noconfirm $to_install
   elif [[ $os == "Ubuntu" ]]; then
+    to_install=""
+    for group in "${!ubuntu_packages[@]}"
+    do
+      read -p "     - Install packages in \"$group\"? [Yn]: " choice
+      if [[ $choice =~ ^y || $choice =~ ^Y || -z $choice ]]; then
+        to_install="$to_install ${ubuntu_packages[$group]}"
+      fi
+    done
+    echo "     - Installing $to_install"
     sudo apt-get update
-    sudo apt-get install -y ${ubuntu_packages[@]}
+    sudo apt-get install -y $to_install
   fi
 }
 
