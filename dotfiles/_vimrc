@@ -111,6 +111,7 @@
   Bundle       'eXeC64/my-snippets'
   Bundle   'majutsushi/tagbar'
   Bundle        'rhysd/vim-clang-format'
+  Bundle        'rking/ag.vim'
 
   call vundle#end()
   filetype plugin indent on
