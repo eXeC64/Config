@@ -27,7 +27,7 @@ if [[ $USER == "root" ]]; then
   exit -1
 fi
 
-check_sudo() {
+require_sudo() {
   sudo echo -n
   if [[ $? -ne 0 ]]; then
     echo "You don't have permission to use sudo. Aborting."
@@ -85,7 +85,7 @@ ubuntu_packages=(
 do_install() {
   echo " * Installing system"
   echo "   - Checking sudo"
-  check_sudo
+  require_sudo
   echo "   - Installing packages"
   if [[ $os == "Arch" ]]; then
     sudo pacman -Sy --quiet --needed --noconfirm ${arch_packages[@]}
