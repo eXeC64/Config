@@ -7,17 +7,24 @@
 #Global options
 config_dir="$HOME/Config"
 
-print_usage() { echo "Usage: $0 <install|config|everything>"; }
 
-if [[ $# -lt 1 ]]; then
-  print_usage
-  exit -1
-fi
+platforms=(
+  arch
+  ubuntu
+)
+
+declare -A install_command
+
+install_command[arch]="pacman -Sy --quiet --needed --noconfirm"
+install_command[ubuntu]="apt-get update && apt-get install -y"
 
 if [[ -f "/etc/arch-release" ]]; then
-  os="Arch"
+  os="arch"
 elif [[ -f "/etc/lsb-release" ]]; then
-  os="Ubuntu"
+  os="ubuntu"
+else
+  echo "Unsupported OS. Aborting"
+  exit -1
 fi
 
 arch=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
@@ -35,7 +42,21 @@ require_sudo() {
   fi
 }
 
-declare -A arch_packages ubuntu_packages
+#require_success <failure message> <command...>
+require_success() {
+  msg=$1
+  shift
+  eval $@
+  if [[ $? -ne 0 ]]; then
+    echo $msg
+    exit -1
+  fi
+}
+
+#removes leading/trailing whitespace
+strip_str() { echo $@ | sed 's/^\s*//;s/\s*$//;'; }
+
+declare -A packages
 
 add_package() {
   if [[ $# -lt 3 ]]; then
@@ -50,23 +71,9 @@ add_package() {
     platform=${!i}
     package=${!j}
 
-    case $platform in
-    all)
-      arch_packages[$group]=$(echo "${arch_packages[$group]} $package" | sed 's/^\s*//')
-      ubuntu_packages[$group]=$(echo "${ubuntu_packages[$group]} $package" | sed 's/^\s*//')
-    ;;
-    arch)
-      arch_packages[$group]=$(echo "${arch_packages[$group]} $package" | sed 's/^\s*//')
-    ;;
-    ubuntu)
-      ubuntu_packages[$group]=$(echo "${ubuntu_packages[$group]} $package" | sed 's/^\s*//')
-    ;;
-    *)
-      echo "Unknown platform: $platform"
-      exit -1
-    ;;
-    esac
-
+    if [[ $platform == $os || $platform == all ]]; then
+      packages[$group]="${packages[$group]} $package"
+    fi
   done
 }
 
@@ -107,29 +114,23 @@ do_install() {
   echo "   - Checking sudo"
   require_sudo
   echo "   - Installing packages"
-  if [[ $os == "Arch" ]]; then
-    to_install=""
-    for group in "${!arch_packages[@]}"
-    do
-      read -p "     - Install packages in \"$group\"? [Yn]: " choice
-      if [[ $choice =~ ^y || $choice =~ ^Y || -z $choice ]]; then
-        to_install="$to_install ${arch_packages[$group]}"
-      fi
-    done
-    echo "     - Installing $to_install"
-    sudo pacman -Sy --quiet --needed --noconfirm $to_install
-  elif [[ $os == "Ubuntu" ]]; then
-    to_install=""
-    for group in "${!ubuntu_packages[@]}"
-    do
-      read -p "     - Install packages in \"$group\"? [Yn]: " choice
-      if [[ $choice =~ ^y || $choice =~ ^Y || -z $choice ]]; then
-        to_install="$to_install ${ubuntu_packages[$group]}"
-      fi
-    done
-    echo "     - Installing $to_install"
-    sudo apt-get update
-    sudo apt-get install -y $to_install
+  to_install=""
+  for group in "${!packages[@]}"
+  do
+    read -p "     - Install packages in \"$group\"? [Yn]: " choice
+    if [[ $choice =~ ^y || $choice =~ ^Y || -z $choice ]]; then
+      to_install="$to_install ${packages[$group]}"
+    fi
+  done
+  to_install=$(strip_str $to_install)
+  echo "     - Installing packages"
+  out=$(sudo ${install_command[$os]} $to_install 2>&1)
+  if [[ $? -ne 0 ]]; then
+    echo "============================================"
+    echo "Error whilst installing packages. Log below:"
+    echo "============================================"
+    echo "$out"
+    exit -1
   fi
 }
 
@@ -202,6 +203,13 @@ do_config() {
   fi
 
 }
+
+print_usage() { echo "Usage: $0 <install|config|everything>"; }
+
+if [[ $# -lt 1 ]]; then
+  print_usage
+  exit -1
+fi
 
 case $1 in
 install)
