@@ -1,31 +1,13 @@
 #!/bin/bash
 
-#This script exists to set up my preferred environment on a clean install of
-#Linux. It is currently designed to work on Arch Linux and Ubuntu, though it
-#shouldn't be difficult to add support for other Linux distributions.
+config_dir=$(dirname $0)
 
-#Global options
-config_dir="$HOME/Config"
-
-
-platforms=(
-  arch
-  ubuntu
-)
-
+declare -a platforms
 declare -A install_command
 
-install_command[arch]="pacman -Sy --quiet --needed --noconfirm"
-install_command[ubuntu]="apt-get update && apt-get install -y"
+. $config_dir/system.conf
 
-if [[ -f "/etc/arch-release" ]]; then
-  os="arch"
-elif [[ -f "/etc/lsb-release" ]]; then
-  os="ubuntu"
-else
-  echo "Unsupported OS. Aborting"
-  exit -1
-fi
+detect_platform
 
 arch=$(uname -m | sed 's/x86_//;s/i[3-6]86/32/')
 
@@ -42,22 +24,9 @@ require_sudo() {
   fi
 }
 
-#require_success <failure message> <command...>
-require_success() {
-  msg=$1
-  shift
-  eval $@
-  if [[ $? -ne 0 ]]; then
-    echo $msg
-    exit -1
-  fi
-}
-
-#removes leading/trailing whitespace
-strip_str() { echo $@ | sed 's/^\s*//;s/\s*$//;'; }
-
 declare -A packages
 
+#used in system.conf
 add_package() {
   if [[ $# -lt 3 ]]; then
     return -1
@@ -68,63 +37,35 @@ add_package() {
   for ((i=2; i + 1<= $#; i += 2))
   do
     j=i+1
-    platform=${!i}
+    pkg_platform=${!i}
     package=${!j}
 
-    if [[ $platform == $os || $platform == all ]]; then
+    if [[ $pkg_platform == $platform || $pkg_platform == all ]]; then
       packages[$group]="${packages[$group]} $package"
     fi
   done
 }
 
-add_package term all zsh
-add_package term all htop
-add_package term all python
-add_package term all rsync
-add_package term arch the_silver_searcher ubuntu silversearcher-ag
-add_package term all sudo
-add_package term all unrar
-add_package term all unzip
-add_package term all weechat
-add_package term all wget
-add_package term all zsh
-add_package term arch inxi
-add_package term arch openssh ubuntu "openssh-client openssh-server"
-
-add_package desktop all evince
-add_package desktop all i3
-add_package desktop arch gvim ubuntu vim-gnome
-add_package desktop all rxvt-unicode
-add_package desktop all scrot
-add_package desktop all thunderbird
-add_package desktop all ttf-dejavu
-add_package desktop all ttf-freefont
-add_package desktop arch ttf-inconsolata
-add_package desktop arch ttf-symbola
-add_package desktop arch xorg
-
-add_package devel arch base-devel ubuntu build-essential
-add_package devel arch clang ubuntu "clang-3.5 clang-format-3.5"
-add_package devel all cppcheck
-add_package devel arch ctags ubuntu exuberant-ctags
-add_package devel all git
+add_packages
 
 do_install() {
   echo " * Installing system"
   echo "   - Checking sudo"
   require_sudo
-  echo "   - Installing packages"
   to_install=""
   for group in "${!packages[@]}"
   do
-    read -p "     - Install packages in \"$group\"? [Yn]: " choice
+    read -p "   - Install packages in \"$group\"? [Yn]: " choice
     if [[ $choice =~ ^y || $choice =~ ^Y || -z $choice ]]; then
       to_install="$to_install ${packages[$group]}"
     fi
   done
-  to_install=$(strip_str $to_install)
-  echo "     - Installing packages"
-  out=$(sudo ${install_command[$os]} $to_install 2>&1)
+  to_install=$(echo $to_install | sed 's/^\s*//;s/\s*$//;')
+  echo "   - Installing packages:"
+  for package in $to_install; do
+    echo "     - $package"
+  done
+  out=$(sudo ${install_command[$platform]} $to_install 2>&1)
   if [[ $? -ne 0 ]]; then
     echo "============================================"
     echo "Error whilst installing packages. Log below:"
