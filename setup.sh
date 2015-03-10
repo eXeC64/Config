@@ -3,6 +3,8 @@
 config_dir=$(dirname $0)
 
 declare -a platforms
+declare -A update_command
+declare -A upgrade_command
 declare -A install_command
 
 . $config_dir/system.conf
@@ -52,6 +54,24 @@ do_install() {
   echo " * Installing system"
   echo "   - Checking sudo"
   require_sudo
+  echo "   - Updating package lists"
+  out=$(sudo ${update_command[$platform]:?"error: update_command not set for $platform"} 2>&1)
+  if [[ $? -ne 0 ]]; then
+    echo "==============================================="
+    echo "Error whilst updating package lists. Log below:"
+    echo "==============================================="
+    echo "$out"
+    exit -1
+  fi
+  echo "   - Upgrading installed packages"
+  out=$(sudo ${upgrade_command[$platform]:?"error: upgrade_command not set for $platform"} 2>&1)
+  if [[ $? -ne 0 ]]; then
+    echo "=================================================="
+    echo "Error whilst upgrading installed lists. Log below:"
+    echo "=================================================="
+    echo "$out"
+    exit -1
+  fi
   to_install=""
   for group in "${!packages[@]}"
   do
@@ -65,7 +85,7 @@ do_install() {
   for package in $to_install; do
     echo "     - $package"
   done
-  out=$(sudo ${install_command[$platform]} $to_install 2>&1)
+  out=$(sudo ${install_command[$platform]:?"error: install_command not set for $platform"} $to_install 2>&1)
   if [[ $? -ne 0 ]]; then
     echo "============================================"
     echo "Error whilst installing packages. Log below:"
