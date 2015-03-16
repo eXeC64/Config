@@ -127,6 +127,14 @@ do_config() {
     fi
   done
 
+  if [[ -f $HOME/.urxvt/ext/font-size ]]; then
+    echo "   - urxvt-font-size already installed"
+  else
+    mkdir -p $HOME/.urxvt/ext
+    wget -q -O $HOME/.urxvt/ext/font-size "https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size"
+    echo "   - Installed urxvt-font-size"
+  fi
+
   echo "   - Applying .Xresources"
   xrdb -merge $HOME/.Xresources
 
