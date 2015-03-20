@@ -2,7 +2,7 @@
 
 synclient PalmDetect=1
 synclient PalmMinWidth=3
-synclient HorizTwoFingerScroll=0
+synclient HorizTwoFingerScroll=1
 
 setxkbmap gb
 setxkbmap -option compose:ralt
