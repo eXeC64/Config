@@ -36,7 +36,6 @@ PROMPT='\
 ╰─[%?]»'
 
 #Aliases
-alias ag='ag --pager "less -FRS"'
 alias apt-get="sudo apt-get"
 alias cp="cp -ri"
 alias dup="( $TERMINAL & ) &>/dev/null"
