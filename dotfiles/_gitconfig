@@ -55,7 +55,7 @@
   b   = branch
   bb  = branch --verbose --verbose
   ll  = log --pretty=concise
-  l   = log --pretty=concise -n 15
+  l   = log --pretty=concise -n 25
   lfp = log --pretty=concise --first-parent
   lg  = log --pretty=concise --graph
   lb  = log --pretty=cleangraph --graph --branches --simplify-by-decoration
