@@ -77,6 +77,10 @@
   "A hack to save as root if we forgot to use vim as root
   cmap w!! %!sudo tee > /dev/null %
 
+  "To hex/from hex
+  command TH %!xxd
+  command FH %!xxd -r
+
 "=========================="
 "Filetype specific settings
 "=========================="
