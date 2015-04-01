@@ -137,7 +137,7 @@
 
   nmap <silent> <leader>b :CtrlPBuffer<CR>
   nmap <silent> <leader>r :CtrlPMRU<CR>
-  nmap <silent> <leader>d :CtrlPCurWD<CR>
+  nmap <silent> <leader>e :CtrlPCurWD<CR>
 
   "Yankstack binds
   nmap <leader>p <Plug>yankstack_substitute_older_paste
