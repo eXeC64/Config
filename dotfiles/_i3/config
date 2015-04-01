@@ -106,6 +106,8 @@ bindsym $mod+F1 exit
 # Function keys
 bindsym XF86KbdBrightnessDown exec asus-kbd-backlight down
 bindsym XF86KbdBrightnessUp exec asus-kbd-backlight up
+bindsym XF86MonBrightnessUp exec xbacklight +5
+bindsym XF86MonBrightnessDown exec xbacklight -5
 
 bindsym XF86AudioMute exec amixer -c 0 -- sset Master togglemute
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master playback 10%-
