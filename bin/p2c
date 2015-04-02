@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/bin/sh
 xclip -o -sel pri | xclip -sel clip
