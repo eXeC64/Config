@@ -42,6 +42,7 @@ alias dup="( $TERMINAL & ) &>/dev/null"
 alias g=git
 alias gi=git
 alias gdb="gdb --quiet"
+alias gdbr="gdb --quiet --ex run --args"
 alias j=jobs
 alias ls="ls -hF  --color=auto"
 alias ll="ls -lhF --color=auto"
