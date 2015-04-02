@@ -55,6 +55,3 @@ alias topri="xclip -i -sel primary"
 alias fromclip="xclip -o -sel clipboard"
 alias frompri="xclip -o -sel primary"
 alias vol=alsamixer
-
-fg() { builtin fg %$1 }
-bg() { builtin bg %$1 }
