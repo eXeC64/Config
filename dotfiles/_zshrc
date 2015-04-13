@@ -43,6 +43,7 @@ alias g=git
 alias gi=git
 alias gdb="gdb --quiet"
 alias gdbr="gdb --quiet --ex run --args"
+alias ipt="sudo iptables"
 alias j=jobs
 alias ls="ls -hF  --color=auto"
 alias ll="ls -lhF --color=auto"
