@@ -50,6 +50,7 @@ alias la="ls -alhF --color=auto"
 alias mv="mv -i"
 alias pacman="sudo pacman --color auto"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip'
+alias systemctl='sudo systemctl'
 alias toclip="xclip -i -sel clipboard"
 alias topri="xclip -i -sel primary"
 alias fromclip="xclip -o -sel clipboard"
