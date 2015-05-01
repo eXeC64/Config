@@ -35,6 +35,11 @@ PROMPT='\
 ╭─%{$fg[blue]%}%n@%M %{$fg[green]%}%~/ $fg[red]$(git_prompt) %{$fg[blue]%}$(date +"[%T]") %{$reset_color%}
 ╰─[%?]»'
 
+#binary less
+bless() {
+  xxd -a $1 | less
+}
+
 #Aliases
 alias apt-get="sudo apt-get"
 alias cp="cp -ri"
