@@ -41,6 +41,7 @@ bless() {
 }
 
 #Aliases
+alias ag='ag --pager "less -R" -S'
 alias apt-get="sudo apt-get"
 alias cp="cp -ri"
 alias dup="( $TERMINAL & ) &>/dev/null"
