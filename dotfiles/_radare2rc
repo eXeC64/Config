@@ -1,0 +1,11 @@
+# Comments on the right
+e asm.cmtright = true
+
+# ATT syntax
+e asm.syntax = att
+
+# Solarized colour scheme
+eco solarized
+
+# UTF8 output
+e scr.utf8=true
