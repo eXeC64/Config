@@ -79,8 +79,8 @@
   cmap w!! %!sudo tee > /dev/null %
 
   "To hex/from hex
-  command TH %!xxd
-  command FH %!xxd -r
+  command ToHex %!xxd
+  command FromHex %!xxd -r
 
 "=========================="
 "Filetype specific settings
