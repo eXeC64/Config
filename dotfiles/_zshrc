@@ -56,6 +56,7 @@ alias ll="ls -lhF --color=auto"
 alias la="ls -alhF --color=auto"
 alias mv="mv -i"
 alias pacman="sudo pacman --color auto"
+alias rootme="sudo zsh -is eval 'source /home/harry/.zshrc'"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip'
 alias systemctl='sudo systemctl'
 alias toclip="xclip -i -sel clipboard"
