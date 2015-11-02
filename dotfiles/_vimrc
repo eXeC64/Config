@@ -101,7 +101,7 @@
 
   Bundle  'altercation/vim-colors-solarized'
   Bundle       'embear/vim-localvimrc'
-  Bundle     'jnwhiteh/vim-golang'
+  Bundle        'fatih/vim-go'
   Bundle         'kien/ctrlp.vim'
   Bundle     'Lokaltog/vim-easymotion'
   Bundle 'maxbrunsfeld/vim-yankstack'
