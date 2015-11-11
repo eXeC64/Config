@@ -40,6 +40,15 @@ bless() {
   xxd -a $1 | less
 }
 
+#Off the record mode
+otr() {
+  zsh -is eval "unset HISTFILE; PROMPT='%~/ \$ '; echo '<OTR MODE>'"
+}
+
+shastr() {
+  echo "$1" | sha256sum | cut -d ' ' -f1
+}
+
 #Aliases
 alias ag='ag --pager "less -R" -S'
 alias apt-get="sudo apt-get"
@@ -65,3 +74,10 @@ alias fromclip="xclip -o -sel clipboard"
 alias frompri="xclip -o -sel primary"
 alias vol=alsamixer
 alias feh="echo 'No. Bad habit. Use imv.'"
+
+#Allow commands to override: zsh -is eval 'some commands here'
+if [[ $1 == eval ]]
+then
+    "$@"
+set --
+fi
