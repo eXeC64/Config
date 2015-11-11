@@ -64,4 +64,4 @@ alias topri="xclip -i -sel primary"
 alias fromclip="xclip -o -sel clipboard"
 alias frompri="xclip -o -sel primary"
 alias vol=alsamixer
-alias feh="feh -B black"
+alias feh="echo 'No. Bad habit. Use imv.'"
