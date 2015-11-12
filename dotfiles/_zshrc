@@ -75,6 +75,11 @@ alias frompri="xclip -o -sel primary"
 alias vol=alsamixer
 alias feh="echo 'No. Bad habit. Use imv.'"
 
+#Random order image viewing
+rimv() {
+  find $1 -type f | shuf | imv -
+}
+
 #Allow commands to override: zsh -is eval 'some commands here'
 if [[ $1 == eval ]]
 then
