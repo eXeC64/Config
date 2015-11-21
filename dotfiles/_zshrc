@@ -24,10 +24,10 @@ eval $(dircolors ~/.dircolors)
 
 #ssh-agent magic
 if ! pgrep -u $USER ssh-agent > /dev/null; then
-    ssh-agent > ~/.ssh-agent-thing
+    ssh-agent | sed -e '/echo/d' > ~/.ssh-agent-thing
 fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval $(<~/.ssh-agent-thing) &>/dev/null
+    eval $(<~/.ssh-agent-thing)
 fi
 
 #Exported variables
