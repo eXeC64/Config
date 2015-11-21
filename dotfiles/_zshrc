@@ -36,11 +36,11 @@ export EDITOR=vim
 export LC_COLLATE=C #causes dotfiles to be sorted first
 
 #Prompt configuration
-print_timestamp() { date +"$fg[blue][%T]$reset_color" }
+print_timestamp() { date +"$fg[white][%T]$reset_color" }
 add-zsh-hook preexec print_timestamp
 git_prompt() { git branch 2>/dev/null | sed -e '/^* /!d' -e 's/^* //' }
 PROMPT='\
-╭─%{$fg[blue]%}%n@%M %{$fg[green]%}%~/ $fg[red]$(git_prompt) %{$fg[blue]%}$(date +"[%T]") %{$reset_color%}
+╭─%{$fg[white]%}%n@%M %{$fg[green]%}%~/ $fg[red]$(git_prompt) %{$fg[white]%}$(date +"[%T]") %{$reset_color%}
 ╰─[%?]»'
 
 #binary less
