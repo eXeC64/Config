@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+
+#Timeout sudo
+/usr/bin/sudo -K
+
+#Ditch ssh keys
+/usr/bin/ssh-add -D
+
+#Ditch gpg passphrases
+echo RELOADAGENT | /usr/bin/gpg-connect-agent
+
+#Lock the screen
+/usr/bin/i3lock -c 555555
