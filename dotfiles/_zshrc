@@ -22,6 +22,14 @@ autoload -Uz compinit && compinit
 autoload -Uz colors && colors
 eval $(dircolors ~/.dircolors)
 
+#ssh-agent magic
+if ! pgrep -u $USER ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval $(<~/.ssh-agent-thing) &>/dev/null
+fi
+
 #Exported variables
 export GOPATH=$HOME/Coding/golang
 export EDITOR=vim
