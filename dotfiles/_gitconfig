@@ -39,9 +39,9 @@
 
 ;Aliases
 [pretty]
-  concise    = "%C(yellow)%h %C(red)%t %C(reset)%ad %C(blue)%cn %C(reset)%s%C(green)%d"
+  concise    = "%C(yellow)%h %C(red)%t %C(reset)%ad %C(blue)%an %C(reset)%s%C(green)%d"
   cleangraph = "%C(yellow)%h %C(reset)%ad %C(reset)%s%C(green)%d"
-  reflog     = "%C(yellow)%h %C(red)%t %C(reset)%ad %C(blue)%cn %C(reset)%gs%C(green)%d"
+  reflog     = "%C(yellow)%h %C(red)%t %C(reset)%ad %C(blue)%an %C(reset)%gs%C(green)%d"
 [alias]
   co  = checkout
   ci  = commit
