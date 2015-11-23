@@ -2,6 +2,7 @@
 [user]
   name = Harry Jeffery
   email = harry@exec64.co.uk
+  signingkey = 24AB8942
 [sendemail]
   smtpencryption = tls
   smtpserver = smtp.gmail.com
