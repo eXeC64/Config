@@ -88,7 +88,7 @@
   autocmd FileType make setlocal noexpandtab
   autocmd Filetype go setlocal noexpandtab tabstop=2 softtabstop=2 shiftwidth=2
   autocmd Filetype html setlocal softtabstop=2 shiftwidth=2
-  au BufRead,BufNewFile *.md setlocal filetype=markdown spell spelllang=en_gb
+  au BufRead,BufNewFile *.md setlocal filetype=markdown.pandoc spell spelllang=en_gb
   au BufRead,BufNewFile *.txt setlocal spell spelllang=en_gb
   au BufRead,BufNewFile *.tex setlocal spell spelllang=en_gb
   au BufRead,BufNewFile *.fountain setlocal filetype=fountain linebreak spell spelllang=en_gb
@@ -194,3 +194,6 @@
   "Marks:
   "m<letter> to set a mark
   "'<letter> to go to a mark
+  "
+  "Formatting:
+  "gq to wrap line length
