@@ -1,6 +1,12 @@
 #!/bin/bash
 
-config_dir=$(dirname $0)
+def_config_dir=/home/$USER/Config
+
+read -p "Config Dir [$def_config_dir]" config_dir
+
+if [[ -z "$config_dir" ]]; then
+  config_dir=$def_config_dir
+fi
 
 declare -a platforms
 declare -A update_command
