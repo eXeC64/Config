@@ -186,6 +186,7 @@ for_window [class="mpv"] border none
 for_window [class="Xchat"] border none
 for_window [class="Steam"] border none
 for_window [class="chromium"] border none
+for_window [class="google-chrome"] border none
 for_window [class="Darktable"] border none
 
 exec --no-startup-id xsetroot -solid "#002b36"
