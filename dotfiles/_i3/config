@@ -16,11 +16,11 @@ bindsym $mod+Shift+Q kill
 
 bindsym $mod+d exec dmenu_run -i
 
-bindsym $mod+w focus output eDP1
-bindsym $mod+e focus output HDMI1
+bindsym $mod+w focus output DVI-I-1
+bindsym $mod+e focus output HDMI-0
 
-bindsym $mod+Shift+w move workspace to output eDP1
-bindsym $mod+Shift+e move workspace to output HDMI1
+bindsym $mod+Shift+w move workspace to output DVI-I-1
+bindsym $mod+Shift+e move workspace to output HDMI-0
 
 # change focus
 bindsym $mod+h focus left
