@@ -86,7 +86,7 @@ alias tmpdev='docker run --rm --volume /:/host --privileged -it ubuntu:14.04'
 
 #Random order image viewing
 rimv() {
-  find $1 -type f | shuf | imv -
+  find $1 -type f | shuf | imv
 }
 
 #Allow commands to override: zsh -is eval 'some commands here'
