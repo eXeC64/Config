@@ -158,7 +158,6 @@ bar {
         status_command i3status
         mode dock
         modifier Mod4
-        #Notification tray on large monitor
 
         font pango:Monospace 11
 
