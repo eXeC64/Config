@@ -10,4 +10,4 @@
 echo RELOADAGENT | /usr/bin/gpg-connect-agent
 
 #Lock the screen
-/usr/bin/i3lock -c 555555
+/usr/bin/i3lock -i ~/Pictures/Wallpapers/mountains.png

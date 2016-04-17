@@ -9,7 +9,7 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt
 bindsym $mod+BackSpace exec google-chrome-stable
 bindsym $mod+equal exec passmenu --type
-bindsym $mod+s exec lock
+bindsym $mod+s exec /home/harry/bin/lock
 
 # kill focused window
 bindsym $mod+Shift+Q kill
@@ -177,6 +177,10 @@ bar {
 #Set solarized as colour for bg, to fix urxvt black borders
 client.background #002b36
 
+smart_gaps on
+gaps inner 20
+
+
 #Default layout is default
 workspace_layout default
 
@@ -189,6 +193,6 @@ for_window [class="chromium"] border none
 for_window [class="google-chrome"] border none
 for_window [class="Darktable"] border none
 
-exec --no-startup-id xsetroot -solid "#002b36"
 exec --no-startup-id ~/.i3_start.sh
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet

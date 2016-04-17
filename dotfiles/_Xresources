@@ -18,6 +18,10 @@ URxvt.font-size.step: 2
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
+!! Transparency
+URxvt.transparent: true
+URxvt.shading: 45
+
 
 #define S_base03        #002b36
 #define S_base02        #073642
