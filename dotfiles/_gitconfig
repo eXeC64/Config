@@ -77,3 +77,4 @@
   m   = merge
   mb  = merge-base
   tpr = "!f() { git fetch origin pull/$1/merge:pr/$1-merged && git checkout pr/$1-merged; }; f"
+  mus = "!f() { git fetch upstream && git merge upstream/master; }; f"
