@@ -32,6 +32,7 @@ fi
 
 #Exported variables
 export GOPATH=$HOME/Coding/golang
+export PATH=$PATH:$HOME/Coding/golang/bin
 export EDITOR=vim
 export LC_COLLATE=C #causes dotfiles to be sorted first
 
@@ -83,6 +84,7 @@ alias frompri="xclip -o -sel primary"
 alias vol=alsamixer
 alias feh="echo 'No. Bad habit. Use imv.'"
 alias tmpdev='docker run --rm --volume /:/host --privileged -it ubuntu:14.04'
+alias citrix='/opt/Citrix/ICAClient/wfica.sh'
 
 #Random order image viewing
 rimv() {
