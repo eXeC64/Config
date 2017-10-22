@@ -54,6 +54,10 @@ otr() {
   zsh -is eval "unset HISTFILE; PROMPT='%~/ \$ '; echo '<OTR MODE>'"
 }
 
+otrq() {
+  zsh -is eval "unset HISTFILE; PROMPT='\$ '; echo '<OTR MODE>'"
+}
+
 shastr() {
   echo "$1" | sha256sum | cut -d ' ' -f1
 }
