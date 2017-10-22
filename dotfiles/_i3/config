@@ -181,10 +181,6 @@ bar {
 #Set solarized as colour for bg, to fix urxvt black borders
 client.background #002b36
 
-smart_gaps on
-gaps inner 20
-
-
 #Default layout is default
 workspace_layout default
 
