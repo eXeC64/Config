@@ -109,9 +109,14 @@ bindsym XF86KbdBrightnessUp exec asus-kbd-backlight up
 bindsym XF86MonBrightnessUp exec xbacklight +5
 bindsym XF86MonBrightnessDown exec xbacklight -5
 
-bindsym XF86AudioMute exec amixer -c 0 -- sset Master togglemute
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master playback 10%-
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master playback 10%+
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+
+bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioStop exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPrevious exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
