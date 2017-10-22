@@ -194,5 +194,4 @@ for_window [class="Google-chrome"] border none
 for_window [class="Darktable"] border none
 
 exec --no-startup-id ~/.i3_start.sh
-exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
