@@ -1,0 +1,67 @@
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+
+# bash options
+HISTFILE=~/.histfile
+HISTSIZE=
+SAVEHIST=
+HISTCONTROL=ignorespace:erasedups
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# formatting vars
+fg_default() {
+  echo -e "\e[39m"
+}
+fg_red() {
+  echo -e "\e[31m"
+}
+fg_green() {
+  echo -e "\e[32m"
+}
+fg_blue() {
+  echo -e "\e[34m"
+}
+fg_white() {
+  echo -e "\e[97m"
+}
+
+# prompt
+statusCode() {
+  if [ "$1" -ne 0 ]; then
+    echo "[$1]"
+  fi
+}
+
+promptDate() {
+  date +"%T"
+}
+
+gitBranch() {
+  format='%(if)%(HEAD)%(then)%(refname:short)%(end)'
+  git branch --format "$format" 2>/dev/null | sed /^$/d
+}
+
+PS1='$(fg_red)$(statusCode $?)$(fg_white)$(promptDate) \u@\h $(fg_green)\w $(fg_red)$(gitBranch)$(fg_default)\n\$ '
+
+
+# environment
+export GOPATH=$HOME/Coding/golang
+export PATH=$PATH:$HOME/Coding/golang/bin
+export EDITOR=vim
+export LC_COLLATE=C # dotfiles to be sorted first
+
+
+# aliases
+alias cp="cp -ri"
+alias g=git
+alias gi=git
+alias gdb="gdb --quiet"
+alias j=jobs
+alias ls="ls -hF  --color=auto"
+alias ll="ls -lhF --color=auto"
+alias la="ls -alhF --color=auto"
+alias mv="mv -i"
+alias pacman="sudo pacman --color auto"
+alias systemctl='sudo systemctl'
+alias startx="echo 'No. Bad habit. Use sway.'"

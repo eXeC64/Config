@@ -170,9 +170,9 @@ do_config() {
   echo "   - Re-enabling Vim colorscheme"
   sed -i 's/^"\(\s\+colorscheme\)/\1/' $HOME/.vimrc
 
-  if [[ $SHELL != "/bin/zsh" ]]; then
-    echo "   - Changing shell to zsh"
-    chsh -s /bin/zsh
+  if [[ $SHELL != "/bin/bash" ]]; then
+    echo "   - Changing shell to bash"
+    chsh -s /bin/bash
   else
     echo "   - Shell is correct"
   fi
