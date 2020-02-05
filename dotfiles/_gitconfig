@@ -5,9 +5,10 @@
   signingkey = 24AB8942
 [sendemail]
   smtpencryption = tls
-  smtpserver = smtp.gmail.com
-  smtpuser = harry@exec64.co.uk
   smtpserverport = 587
+  smtpserver = varys.harry.pm
+  smtpuser = me@harry.pm
+
 
 ;General settings
 [advice]

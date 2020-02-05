@@ -65,3 +65,10 @@ alias mv="mv -i"
 alias pacman="sudo pacman --color auto"
 alias systemctl='sudo systemctl'
 alias startx="echo 'No. Bad habit. Use sway.'"
+alias ccat="highlight -O ansi --force"
+alias less="less -r"
+alias psef="ps -ef | grep"
+
+otr() {
+  bash --init-file <(echo "source ~/.bashrc; unset HISTFILE; PS1='\w \$ '; echo '<OTR MODE>'")
+}
