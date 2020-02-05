@@ -1,3 +1,10 @@
 #!/bin/bash
-uri=$(xclip -o -sel pri)
-mpv --cache-default=4096 "$uri"
+
+if [ -z "$1" ]; then
+  uri=$(wl-paste)
+else
+  uri="$1"
+fi
+
+mpv --ytdl-format='best[height=720]' "$uri"
+
